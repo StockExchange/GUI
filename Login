@@ -1,0 +1,269 @@
+namespace StockExchange
+{
+    partial class loginForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.titleLogIn = new System.Windows.Forms.Label();
+            this.userIdTextBox = new System.Windows.Forms.TextBox();
+            this.userIdLabel = new System.Windows.Forms.Label();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.logInBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.userIdSignUpTextBox = new System.Windows.Forms.TextBox();
+            this.passwordSignUpTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.nINrTextBox = new System.Windows.Forms.TextBox();
+            this.userIdSignUpLabel = new System.Windows.Forms.Label();
+            this.passwordSignUpLabel = new System.Windows.Forms.Label();
+            this.FirstNameLabel = new System.Windows.Forms.Label();
+            this.lastNameLabel = new System.Windows.Forms.Label();
+            this.addressLabel = new System.Windows.Forms.Label();
+            this.nINrLabel = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // titleLogIn
+            // 
+            this.titleLogIn.AutoSize = true;
+            this.titleLogIn.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLogIn.Location = new System.Drawing.Point(280, 55);
+            this.titleLogIn.Name = "titleLogIn";
+            this.titleLogIn.Size = new System.Drawing.Size(219, 39);
+            this.titleLogIn.TabIndex = 0;
+            this.titleLogIn.Text = "Stock Exchange";
+            this.titleLogIn.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // userIdTextBox
+            // 
+            this.userIdTextBox.Location = new System.Drawing.Point(111, 228);
+            this.userIdTextBox.Name = "userIdTextBox";
+            this.userIdTextBox.Size = new System.Drawing.Size(164, 26);
+            this.userIdTextBox.TabIndex = 1;
+            this.userIdTextBox.TextChanged += new System.EventHandler(this.userIdTextBox_TextChanged);
+            // 
+            // userIdLabel
+            // 
+            this.userIdLabel.AutoSize = true;
+            this.userIdLabel.Location = new System.Drawing.Point(26, 228);
+            this.userIdLabel.Name = "userIdLabel";
+            this.userIdLabel.Size = new System.Drawing.Size(64, 20);
+            this.userIdLabel.TabIndex = 2;
+            this.userIdLabel.Text = "User ID";
+            this.userIdLabel.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Location = new System.Drawing.Point(111, 316);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(164, 26);
+            this.passwordTextBox.TabIndex = 3;
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
+            // 
+            // passwordLabel
+            // 
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Location = new System.Drawing.Point(12, 316);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(78, 20);
+            this.passwordLabel.TabIndex = 5;
+            this.passwordLabel.Text = "Password";
+            this.passwordLabel.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // logInBtn
+            // 
+            this.logInBtn.Location = new System.Drawing.Point(131, 439);
+            this.logInBtn.Name = "logInBtn";
+            this.logInBtn.Size = new System.Drawing.Size(100, 55);
+            this.logInBtn.TabIndex = 6;
+            this.logInBtn.Text = "Log in";
+            this.logInBtn.UseVisualStyleBackColor = true;
+            this.logInBtn.Click += new System.EventHandler(this.logInBtn_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(567, 439);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 55);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Sign up";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // userIdSignUpTextBox
+            // 
+            this.userIdSignUpTextBox.Location = new System.Drawing.Point(510, 147);
+            this.userIdSignUpTextBox.Name = "userIdSignUpTextBox";
+            this.userIdSignUpTextBox.Size = new System.Drawing.Size(216, 26);
+            this.userIdSignUpTextBox.TabIndex = 8;
+            // 
+            // passwordSignUpTextBox
+            // 
+            this.passwordSignUpTextBox.Location = new System.Drawing.Point(510, 192);
+            this.passwordSignUpTextBox.Name = "passwordSignUpTextBox";
+            this.passwordSignUpTextBox.Size = new System.Drawing.Size(216, 26);
+            this.passwordSignUpTextBox.TabIndex = 9;
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.Location = new System.Drawing.Point(510, 238);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(216, 26);
+            this.firstNameTextBox.TabIndex = 10;
+            // 
+            // lastNameTextBox
+            // 
+            this.lastNameTextBox.Location = new System.Drawing.Point(510, 282);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(216, 26);
+            this.lastNameTextBox.TabIndex = 11;
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.Location = new System.Drawing.Point(510, 327);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(216, 26);
+            this.addressTextBox.TabIndex = 12;
+            // 
+            // nINrTextBox
+            // 
+            this.nINrTextBox.Location = new System.Drawing.Point(510, 372);
+            this.nINrTextBox.Name = "nINrTextBox";
+            this.nINrTextBox.Size = new System.Drawing.Size(216, 26);
+            this.nINrTextBox.TabIndex = 13;
+            // 
+            // userIdSignUpLabel
+            // 
+            this.userIdSignUpLabel.AutoSize = true;
+            this.userIdSignUpLabel.Location = new System.Drawing.Point(422, 147);
+            this.userIdSignUpLabel.Name = "userIdSignUpLabel";
+            this.userIdSignUpLabel.Size = new System.Drawing.Size(64, 20);
+            this.userIdSignUpLabel.TabIndex = 14;
+            this.userIdSignUpLabel.Text = "User ID";
+            // 
+            // passwordSignUpLabel
+            // 
+            this.passwordSignUpLabel.AutoSize = true;
+            this.passwordSignUpLabel.Location = new System.Drawing.Point(408, 192);
+            this.passwordSignUpLabel.Name = "passwordSignUpLabel";
+            this.passwordSignUpLabel.Size = new System.Drawing.Size(78, 20);
+            this.passwordSignUpLabel.TabIndex = 15;
+            this.passwordSignUpLabel.Text = "Password";
+            // 
+            // FirstNameLabel
+            // 
+            this.FirstNameLabel.AutoSize = true;
+            this.FirstNameLabel.Location = new System.Drawing.Point(400, 238);
+            this.FirstNameLabel.Name = "FirstNameLabel";
+            this.FirstNameLabel.Size = new System.Drawing.Size(86, 20);
+            this.FirstNameLabel.TabIndex = 16;
+            this.FirstNameLabel.Text = "First Name";
+            // 
+            // lastNameLabel
+            // 
+            this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Location = new System.Drawing.Point(400, 282);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(86, 20);
+            this.lastNameLabel.TabIndex = 17;
+            this.lastNameLabel.Text = "Last Name";
+            // 
+            // addressLabel
+            // 
+            this.addressLabel.AutoSize = true;
+            this.addressLabel.Location = new System.Drawing.Point(418, 327);
+            this.addressLabel.Name = "addressLabel";
+            this.addressLabel.Size = new System.Drawing.Size(68, 20);
+            this.addressLabel.TabIndex = 18;
+            this.addressLabel.Text = "Address";
+            // 
+            // nINrLabel
+            // 
+            this.nINrLabel.AutoSize = true;
+            this.nINrLabel.Location = new System.Drawing.Point(338, 372);
+            this.nINrLabel.Name = "nINrLabel";
+            this.nINrLabel.Size = new System.Drawing.Size(148, 20);
+            this.nINrLabel.TabIndex = 19;
+            this.nINrLabel.Text = "National ID Number";
+            // 
+            // loginForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(778, 544);
+            this.Controls.Add(this.nINrLabel);
+            this.Controls.Add(this.addressLabel);
+            this.Controls.Add(this.lastNameLabel);
+            this.Controls.Add(this.FirstNameLabel);
+            this.Controls.Add(this.passwordSignUpLabel);
+            this.Controls.Add(this.userIdSignUpLabel);
+            this.Controls.Add(this.nINrTextBox);
+            this.Controls.Add(this.addressTextBox);
+            this.Controls.Add(this.lastNameTextBox);
+            this.Controls.Add(this.firstNameTextBox);
+            this.Controls.Add(this.passwordSignUpTextBox);
+            this.Controls.Add(this.userIdSignUpTextBox);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.logInBtn);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.userIdLabel);
+            this.Controls.Add(this.userIdTextBox);
+            this.Controls.Add(this.titleLogIn);
+            this.Name = "loginForm";
+            this.Text = "Stock Exchange";
+            this.Load += new System.EventHandler(this.Login_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label titleLogIn;
+        private System.Windows.Forms.TextBox userIdTextBox;
+        private System.Windows.Forms.Label userIdLabel;
+        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Button logInBtn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox userIdSignUpTextBox;
+        private System.Windows.Forms.TextBox passwordSignUpTextBox;
+        private System.Windows.Forms.TextBox firstNameTextBox;
+        private System.Windows.Forms.TextBox lastNameTextBox;
+        private System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.TextBox nINrTextBox;
+        private System.Windows.Forms.Label userIdSignUpLabel;
+        private System.Windows.Forms.Label passwordSignUpLabel;
+        private System.Windows.Forms.Label FirstNameLabel;
+        private System.Windows.Forms.Label lastNameLabel;
+        private System.Windows.Forms.Label addressLabel;
+        private System.Windows.Forms.Label nINrLabel;
+    }
+}
