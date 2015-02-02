@@ -1,0 +1,485 @@
+namespace StockExchange
+{
+    partial class User
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPageStockPortfolio = new System.Windows.Forms.TabPage();
+            this.labelStockPortfolioChooseStocks = new System.Windows.Forms.Label();
+            this.chartStockPortfolioShowStocks = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dataGridViewStockPortfolioShowStocks = new System.Windows.Forms.DataGridView();
+            this.comboBoxStockPortfolioChooseStocks = new System.Windows.Forms.ComboBox();
+            this.tabPageBuySellStocks = new System.Windows.Forms.TabPage();
+            this.tabPageUserInfo = new System.Windows.Forms.TabPage();
+            this.btnUserUpdate = new System.Windows.Forms.Button();
+            this.textBoxUserNationalIdNumber = new System.Windows.Forms.TextBox();
+            this.labelNationalIdNumber = new System.Windows.Forms.Label();
+            this.labelUserAddress = new System.Windows.Forms.Label();
+            this.textBoxUserAddress = new System.Windows.Forms.TextBox();
+            this.textBoxUserLastName = new System.Windows.Forms.TextBox();
+            this.labelUserLastName = new System.Windows.Forms.Label();
+            this.labelUserFirstName = new System.Windows.Forms.Label();
+            this.textBoxUserFirstName = new System.Windows.Forms.TextBox();
+            this.textBoxUserPassword = new System.Windows.Forms.TextBox();
+            this.labelUserPassword = new System.Windows.Forms.Label();
+            this.labelUserUserId = new System.Windows.Forms.Label();
+            this.textBoxUserUserId = new System.Windows.Forms.TextBox();
+            this.dataGridViewSellStocks = new System.Windows.Forms.DataGridView();
+            this.dataGridViewBuyStocks = new System.Windows.Forms.DataGridView();
+            this.comboBoxSellStocksChoose = new System.Windows.Forms.ComboBox();
+            this.comboBoxSellStocksAmount = new System.Windows.Forms.ComboBox();
+            this.btnSellStocksSell = new System.Windows.Forms.Button();
+            this.labelSellStocksChooseStock = new System.Windows.Forms.Label();
+            this.labelSellStocksAmount = new System.Windows.Forms.Label();
+            this.comboBoxBuyStocksChoose = new System.Windows.Forms.ComboBox();
+            this.comboBoxBuyStocksAmount = new System.Windows.Forms.ComboBox();
+            this.btnBuyStocksBuy = new System.Windows.Forms.Button();
+            this.labelBuyStocksChooseStock = new System.Windows.Forms.Label();
+            this.labelBuyStocksAmount = new System.Windows.Forms.Label();
+            this.labelSellStocksStockPortfolio = new System.Windows.Forms.Label();
+            this.labelBuyStocksMarket = new System.Windows.Forms.Label();
+            this.tabControl.SuspendLayout();
+            this.tabPageStockPortfolio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartStockPortfolioShowStocks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockPortfolioShowStocks)).BeginInit();
+            this.tabPageBuySellStocks.SuspendLayout();
+            this.tabPageUserInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSellStocks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuyStocks)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabPageStockPortfolio);
+            this.tabControl.Controls.Add(this.tabPageBuySellStocks);
+            this.tabControl.Controls.Add(this.tabPageUserInfo);
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(1204, 803);
+            this.tabControl.TabIndex = 0;
+            // 
+            // tabPageStockPortfolio
+            // 
+            this.tabPageStockPortfolio.Controls.Add(this.labelStockPortfolioChooseStocks);
+            this.tabPageStockPortfolio.Controls.Add(this.chartStockPortfolioShowStocks);
+            this.tabPageStockPortfolio.Controls.Add(this.dataGridViewStockPortfolioShowStocks);
+            this.tabPageStockPortfolio.Controls.Add(this.comboBoxStockPortfolioChooseStocks);
+            this.tabPageStockPortfolio.Location = new System.Drawing.Point(4, 29);
+            this.tabPageStockPortfolio.Name = "tabPageStockPortfolio";
+            this.tabPageStockPortfolio.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStockPortfolio.Size = new System.Drawing.Size(1196, 770);
+            this.tabPageStockPortfolio.TabIndex = 0;
+            this.tabPageStockPortfolio.Text = "Stock Portfolio";
+            this.tabPageStockPortfolio.UseVisualStyleBackColor = true;
+            this.tabPageStockPortfolio.Click += new System.EventHandler(this.tabPageStockPortfolio_Click);
+            // 
+            // labelStockPortfolioChooseStocks
+            // 
+            this.labelStockPortfolioChooseStocks.AutoSize = true;
+            this.labelStockPortfolioChooseStocks.Location = new System.Drawing.Point(165, 33);
+            this.labelStockPortfolioChooseStocks.Name = "labelStockPortfolioChooseStocks";
+            this.labelStockPortfolioChooseStocks.Size = new System.Drawing.Size(109, 20);
+            this.labelStockPortfolioChooseStocks.TabIndex = 3;
+            this.labelStockPortfolioChooseStocks.Text = "Choose Stock";
+            // 
+            // chartStockPortfolioShowStocks
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartStockPortfolioShowStocks.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartStockPortfolioShowStocks.Legends.Add(legend1);
+            this.chartStockPortfolioShowStocks.Location = new System.Drawing.Point(634, 116);
+            this.chartStockPortfolioShowStocks.Name = "chartStockPortfolioShowStocks";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartStockPortfolioShowStocks.Series.Add(series1);
+            this.chartStockPortfolioShowStocks.Size = new System.Drawing.Size(526, 627);
+            this.chartStockPortfolioShowStocks.TabIndex = 2;
+            this.chartStockPortfolioShowStocks.Text = "Stocks Current Value";
+            // 
+            // dataGridViewStockPortfolioShowStocks
+            // 
+            this.dataGridViewStockPortfolioShowStocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStockPortfolioShowStocks.Location = new System.Drawing.Point(31, 116);
+            this.dataGridViewStockPortfolioShowStocks.Name = "dataGridViewStockPortfolioShowStocks";
+            this.dataGridViewStockPortfolioShowStocks.RowTemplate.Height = 28;
+            this.dataGridViewStockPortfolioShowStocks.Size = new System.Drawing.Size(558, 627);
+            this.dataGridViewStockPortfolioShowStocks.TabIndex = 1;
+            // 
+            // comboBoxStockPortfolioChooseStocks
+            // 
+            this.comboBoxStockPortfolioChooseStocks.FormattingEnabled = true;
+            this.comboBoxStockPortfolioChooseStocks.Location = new System.Drawing.Point(31, 56);
+            this.comboBoxStockPortfolioChooseStocks.Name = "comboBoxStockPortfolioChooseStocks";
+            this.comboBoxStockPortfolioChooseStocks.Size = new System.Drawing.Size(356, 28);
+            this.comboBoxStockPortfolioChooseStocks.TabIndex = 0;
+            // 
+            // tabPageBuySellStocks
+            // 
+            this.tabPageBuySellStocks.Controls.Add(this.labelBuyStocksMarket);
+            this.tabPageBuySellStocks.Controls.Add(this.labelSellStocksStockPortfolio);
+            this.tabPageBuySellStocks.Controls.Add(this.labelBuyStocksAmount);
+            this.tabPageBuySellStocks.Controls.Add(this.labelBuyStocksChooseStock);
+            this.tabPageBuySellStocks.Controls.Add(this.btnBuyStocksBuy);
+            this.tabPageBuySellStocks.Controls.Add(this.comboBoxBuyStocksAmount);
+            this.tabPageBuySellStocks.Controls.Add(this.comboBoxBuyStocksChoose);
+            this.tabPageBuySellStocks.Controls.Add(this.labelSellStocksAmount);
+            this.tabPageBuySellStocks.Controls.Add(this.labelSellStocksChooseStock);
+            this.tabPageBuySellStocks.Controls.Add(this.btnSellStocksSell);
+            this.tabPageBuySellStocks.Controls.Add(this.comboBoxSellStocksAmount);
+            this.tabPageBuySellStocks.Controls.Add(this.comboBoxSellStocksChoose);
+            this.tabPageBuySellStocks.Controls.Add(this.dataGridViewBuyStocks);
+            this.tabPageBuySellStocks.Controls.Add(this.dataGridViewSellStocks);
+            this.tabPageBuySellStocks.Location = new System.Drawing.Point(4, 29);
+            this.tabPageBuySellStocks.Name = "tabPageBuySellStocks";
+            this.tabPageBuySellStocks.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBuySellStocks.Size = new System.Drawing.Size(1196, 770);
+            this.tabPageBuySellStocks.TabIndex = 1;
+            this.tabPageBuySellStocks.Text = "Buy/Sell Stocks";
+            this.tabPageBuySellStocks.UseVisualStyleBackColor = true;
+            // 
+            // tabPageUserInfo
+            // 
+            this.tabPageUserInfo.Controls.Add(this.btnUserUpdate);
+            this.tabPageUserInfo.Controls.Add(this.textBoxUserNationalIdNumber);
+            this.tabPageUserInfo.Controls.Add(this.labelNationalIdNumber);
+            this.tabPageUserInfo.Controls.Add(this.labelUserAddress);
+            this.tabPageUserInfo.Controls.Add(this.textBoxUserAddress);
+            this.tabPageUserInfo.Controls.Add(this.textBoxUserLastName);
+            this.tabPageUserInfo.Controls.Add(this.labelUserLastName);
+            this.tabPageUserInfo.Controls.Add(this.labelUserFirstName);
+            this.tabPageUserInfo.Controls.Add(this.textBoxUserFirstName);
+            this.tabPageUserInfo.Controls.Add(this.textBoxUserPassword);
+            this.tabPageUserInfo.Controls.Add(this.labelUserPassword);
+            this.tabPageUserInfo.Controls.Add(this.labelUserUserId);
+            this.tabPageUserInfo.Controls.Add(this.textBoxUserUserId);
+            this.tabPageUserInfo.Location = new System.Drawing.Point(4, 29);
+            this.tabPageUserInfo.Name = "tabPageUserInfo";
+            this.tabPageUserInfo.Size = new System.Drawing.Size(1196, 770);
+            this.tabPageUserInfo.TabIndex = 2;
+            this.tabPageUserInfo.Text = "User Info";
+            this.tabPageUserInfo.UseVisualStyleBackColor = true;
+            // 
+            // btnUserUpdate
+            // 
+            this.btnUserUpdate.Location = new System.Drawing.Point(550, 580);
+            this.btnUserUpdate.Name = "btnUserUpdate";
+            this.btnUserUpdate.Size = new System.Drawing.Size(100, 55);
+            this.btnUserUpdate.TabIndex = 12;
+            this.btnUserUpdate.Text = "Update";
+            this.btnUserUpdate.UseVisualStyleBackColor = true;
+            // 
+            // textBoxUserNationalIdNumber
+            // 
+            this.textBoxUserNationalIdNumber.Location = new System.Drawing.Point(425, 410);
+            this.textBoxUserNationalIdNumber.Name = "textBoxUserNationalIdNumber";
+            this.textBoxUserNationalIdNumber.Size = new System.Drawing.Size(343, 26);
+            this.textBoxUserNationalIdNumber.TabIndex = 11;
+            // 
+            // labelNationalIdNumber
+            // 
+            this.labelNationalIdNumber.AutoSize = true;
+            this.labelNationalIdNumber.Location = new System.Drawing.Point(223, 410);
+            this.labelNationalIdNumber.Name = "labelNationalIdNumber";
+            this.labelNationalIdNumber.Size = new System.Drawing.Size(148, 20);
+            this.labelNationalIdNumber.TabIndex = 10;
+            this.labelNationalIdNumber.Text = "National ID Number";
+            // 
+            // labelUserAddress
+            // 
+            this.labelUserAddress.AutoSize = true;
+            this.labelUserAddress.Location = new System.Drawing.Point(303, 350);
+            this.labelUserAddress.Name = "labelUserAddress";
+            this.labelUserAddress.Size = new System.Drawing.Size(68, 20);
+            this.labelUserAddress.TabIndex = 9;
+            this.labelUserAddress.Text = "Address";
+            // 
+            // textBoxUserAddress
+            // 
+            this.textBoxUserAddress.Location = new System.Drawing.Point(425, 350);
+            this.textBoxUserAddress.Name = "textBoxUserAddress";
+            this.textBoxUserAddress.Size = new System.Drawing.Size(343, 26);
+            this.textBoxUserAddress.TabIndex = 8;
+            // 
+            // textBoxUserLastName
+            // 
+            this.textBoxUserLastName.Location = new System.Drawing.Point(425, 290);
+            this.textBoxUserLastName.Name = "textBoxUserLastName";
+            this.textBoxUserLastName.Size = new System.Drawing.Size(343, 26);
+            this.textBoxUserLastName.TabIndex = 7;
+            // 
+            // labelUserLastName
+            // 
+            this.labelUserLastName.AutoSize = true;
+            this.labelUserLastName.Location = new System.Drawing.Point(285, 290);
+            this.labelUserLastName.Name = "labelUserLastName";
+            this.labelUserLastName.Size = new System.Drawing.Size(86, 20);
+            this.labelUserLastName.TabIndex = 6;
+            this.labelUserLastName.Text = "Last Name";
+            // 
+            // labelUserFirstName
+            // 
+            this.labelUserFirstName.AutoSize = true;
+            this.labelUserFirstName.Location = new System.Drawing.Point(285, 230);
+            this.labelUserFirstName.Name = "labelUserFirstName";
+            this.labelUserFirstName.Size = new System.Drawing.Size(86, 20);
+            this.labelUserFirstName.TabIndex = 5;
+            this.labelUserFirstName.Text = "First Name";
+            // 
+            // textBoxUserFirstName
+            // 
+            this.textBoxUserFirstName.Location = new System.Drawing.Point(425, 230);
+            this.textBoxUserFirstName.Name = "textBoxUserFirstName";
+            this.textBoxUserFirstName.Size = new System.Drawing.Size(343, 26);
+            this.textBoxUserFirstName.TabIndex = 4;
+            // 
+            // textBoxUserPassword
+            // 
+            this.textBoxUserPassword.Location = new System.Drawing.Point(425, 170);
+            this.textBoxUserPassword.Name = "textBoxUserPassword";
+            this.textBoxUserPassword.Size = new System.Drawing.Size(343, 26);
+            this.textBoxUserPassword.TabIndex = 3;
+            // 
+            // labelUserPassword
+            // 
+            this.labelUserPassword.AutoSize = true;
+            this.labelUserPassword.Location = new System.Drawing.Point(293, 170);
+            this.labelUserPassword.Name = "labelUserPassword";
+            this.labelUserPassword.Size = new System.Drawing.Size(78, 20);
+            this.labelUserPassword.TabIndex = 2;
+            this.labelUserPassword.Text = "Password";
+            // 
+            // labelUserUserId
+            // 
+            this.labelUserUserId.AutoSize = true;
+            this.labelUserUserId.Location = new System.Drawing.Point(307, 110);
+            this.labelUserUserId.Name = "labelUserUserId";
+            this.labelUserUserId.Size = new System.Drawing.Size(64, 20);
+            this.labelUserUserId.TabIndex = 1;
+            this.labelUserUserId.Text = "User ID";
+            // 
+            // textBoxUserUserId
+            // 
+            this.textBoxUserUserId.Location = new System.Drawing.Point(425, 110);
+            this.textBoxUserUserId.Name = "textBoxUserUserId";
+            this.textBoxUserUserId.Size = new System.Drawing.Size(343, 26);
+            this.textBoxUserUserId.TabIndex = 0;
+            // 
+            // dataGridViewSellStocks
+            // 
+            this.dataGridViewSellStocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSellStocks.Location = new System.Drawing.Point(19, 111);
+            this.dataGridViewSellStocks.Name = "dataGridViewSellStocks";
+            this.dataGridViewSellStocks.RowTemplate.Height = 28;
+            this.dataGridViewSellStocks.Size = new System.Drawing.Size(558, 519);
+            this.dataGridViewSellStocks.TabIndex = 0;
+            // 
+            // dataGridViewBuyStocks
+            // 
+            this.dataGridViewBuyStocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBuyStocks.Location = new System.Drawing.Point(627, 111);
+            this.dataGridViewBuyStocks.Name = "dataGridViewBuyStocks";
+            this.dataGridViewBuyStocks.RowTemplate.Height = 28;
+            this.dataGridViewBuyStocks.Size = new System.Drawing.Size(555, 519);
+            this.dataGridViewBuyStocks.TabIndex = 1;
+            // 
+            // comboBoxSellStocksChoose
+            // 
+            this.comboBoxSellStocksChoose.FormattingEnabled = true;
+            this.comboBoxSellStocksChoose.Location = new System.Drawing.Point(19, 701);
+            this.comboBoxSellStocksChoose.Name = "comboBoxSellStocksChoose";
+            this.comboBoxSellStocksChoose.Size = new System.Drawing.Size(190, 28);
+            this.comboBoxSellStocksChoose.TabIndex = 2;
+            // 
+            // comboBoxSellStocksAmount
+            // 
+            this.comboBoxSellStocksAmount.FormattingEnabled = true;
+            this.comboBoxSellStocksAmount.Location = new System.Drawing.Point(250, 701);
+            this.comboBoxSellStocksAmount.Name = "comboBoxSellStocksAmount";
+            this.comboBoxSellStocksAmount.Size = new System.Drawing.Size(128, 28);
+            this.comboBoxSellStocksAmount.TabIndex = 3;
+            // 
+            // btnSellStocksSell
+            // 
+            this.btnSellStocksSell.Location = new System.Drawing.Point(425, 700);
+            this.btnSellStocksSell.Name = "btnSellStocksSell";
+            this.btnSellStocksSell.Size = new System.Drawing.Size(75, 28);
+            this.btnSellStocksSell.TabIndex = 4;
+            this.btnSellStocksSell.Text = "Sell";
+            this.btnSellStocksSell.UseVisualStyleBackColor = true;
+            // 
+            // labelSellStocksChooseStock
+            // 
+            this.labelSellStocksChooseStock.AutoSize = true;
+            this.labelSellStocksChooseStock.Location = new System.Drawing.Point(52, 678);
+            this.labelSellStocksChooseStock.Name = "labelSellStocksChooseStock";
+            this.labelSellStocksChooseStock.Size = new System.Drawing.Size(109, 20);
+            this.labelSellStocksChooseStock.TabIndex = 5;
+            this.labelSellStocksChooseStock.Text = "Choose Stock";
+            // 
+            // labelSellStocksAmount
+            // 
+            this.labelSellStocksAmount.AutoSize = true;
+            this.labelSellStocksAmount.Location = new System.Drawing.Point(280, 678);
+            this.labelSellStocksAmount.Name = "labelSellStocksAmount";
+            this.labelSellStocksAmount.Size = new System.Drawing.Size(65, 20);
+            this.labelSellStocksAmount.TabIndex = 6;
+            this.labelSellStocksAmount.Text = "Amount";
+            this.labelSellStocksAmount.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // comboBoxBuyStocksChoose
+            // 
+            this.comboBoxBuyStocksChoose.FormattingEnabled = true;
+            this.comboBoxBuyStocksChoose.Location = new System.Drawing.Point(649, 700);
+            this.comboBoxBuyStocksChoose.Name = "comboBoxBuyStocksChoose";
+            this.comboBoxBuyStocksChoose.Size = new System.Drawing.Size(190, 28);
+            this.comboBoxBuyStocksChoose.TabIndex = 7;
+            // 
+            // comboBoxBuyStocksAmount
+            // 
+            this.comboBoxBuyStocksAmount.FormattingEnabled = true;
+            this.comboBoxBuyStocksAmount.Location = new System.Drawing.Point(893, 700);
+            this.comboBoxBuyStocksAmount.Name = "comboBoxBuyStocksAmount";
+            this.comboBoxBuyStocksAmount.Size = new System.Drawing.Size(128, 28);
+            this.comboBoxBuyStocksAmount.TabIndex = 8;
+            // 
+            // btnBuyStocksBuy
+            // 
+            this.btnBuyStocksBuy.Location = new System.Drawing.Point(1060, 699);
+            this.btnBuyStocksBuy.Name = "btnBuyStocksBuy";
+            this.btnBuyStocksBuy.Size = new System.Drawing.Size(75, 28);
+            this.btnBuyStocksBuy.TabIndex = 9;
+            this.btnBuyStocksBuy.Text = "Buy";
+            this.btnBuyStocksBuy.UseVisualStyleBackColor = true;
+            // 
+            // labelBuyStocksChooseStock
+            // 
+            this.labelBuyStocksChooseStock.AutoSize = true;
+            this.labelBuyStocksChooseStock.Location = new System.Drawing.Point(686, 677);
+            this.labelBuyStocksChooseStock.Name = "labelBuyStocksChooseStock";
+            this.labelBuyStocksChooseStock.Size = new System.Drawing.Size(109, 20);
+            this.labelBuyStocksChooseStock.TabIndex = 10;
+            this.labelBuyStocksChooseStock.Text = "Choose Stock";
+            // 
+            // labelBuyStocksAmount
+            // 
+            this.labelBuyStocksAmount.AutoSize = true;
+            this.labelBuyStocksAmount.Location = new System.Drawing.Point(922, 677);
+            this.labelBuyStocksAmount.Name = "labelBuyStocksAmount";
+            this.labelBuyStocksAmount.Size = new System.Drawing.Size(65, 20);
+            this.labelBuyStocksAmount.TabIndex = 11;
+            this.labelBuyStocksAmount.Text = "Amount";
+            // 
+            // labelSellStocksStockPortfolio
+            // 
+            this.labelSellStocksStockPortfolio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSellStocksStockPortfolio.Location = new System.Drawing.Point(157, 58);
+            this.labelSellStocksStockPortfolio.Name = "labelSellStocksStockPortfolio";
+            this.labelSellStocksStockPortfolio.Size = new System.Drawing.Size(258, 50);
+            this.labelSellStocksStockPortfolio.TabIndex = 12;
+            this.labelSellStocksStockPortfolio.Text = "Stock Portfolio";
+            // 
+            // labelBuyStocksMarket
+            // 
+            this.labelBuyStocksMarket.AutoSize = true;
+            this.labelBuyStocksMarket.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBuyStocksMarket.Location = new System.Drawing.Point(808, 58);
+            this.labelBuyStocksMarket.Name = "labelBuyStocksMarket";
+            this.labelBuyStocksMarket.Size = new System.Drawing.Size(227, 40);
+            this.labelBuyStocksMarket.TabIndex = 13;
+            this.labelBuyStocksMarket.Text = "Stock Market";
+            // 
+            // User
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(1198, 799);
+            this.Controls.Add(this.tabControl);
+            this.Name = "User";
+            this.Text = "Stock Exchange";
+            this.tabControl.ResumeLayout(false);
+            this.tabPageStockPortfolio.ResumeLayout(false);
+            this.tabPageStockPortfolio.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartStockPortfolioShowStocks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockPortfolioShowStocks)).EndInit();
+            this.tabPageBuySellStocks.ResumeLayout(false);
+            this.tabPageBuySellStocks.PerformLayout();
+            this.tabPageUserInfo.ResumeLayout(false);
+            this.tabPageUserInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSellStocks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuyStocks)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabPageStockPortfolio;
+        private System.Windows.Forms.TabPage tabPageBuySellStocks;
+        private System.Windows.Forms.DataGridView dataGridViewStockPortfolioShowStocks;
+        private System.Windows.Forms.ComboBox comboBoxStockPortfolioChooseStocks;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartStockPortfolioShowStocks;
+        private System.Windows.Forms.Label labelStockPortfolioChooseStocks;
+        private System.Windows.Forms.TabPage tabPageUserInfo;
+        private System.Windows.Forms.TextBox textBoxUserUserId;
+        private System.Windows.Forms.TextBox textBoxUserNationalIdNumber;
+        private System.Windows.Forms.Label labelNationalIdNumber;
+        private System.Windows.Forms.Label labelUserAddress;
+        private System.Windows.Forms.TextBox textBoxUserAddress;
+        private System.Windows.Forms.TextBox textBoxUserLastName;
+        private System.Windows.Forms.Label labelUserLastName;
+        private System.Windows.Forms.Label labelUserFirstName;
+        private System.Windows.Forms.TextBox textBoxUserFirstName;
+        private System.Windows.Forms.TextBox textBoxUserPassword;
+        private System.Windows.Forms.Label labelUserPassword;
+        private System.Windows.Forms.Label labelUserUserId;
+        private System.Windows.Forms.Button btnUserUpdate;
+        private System.Windows.Forms.Label labelSellStocksAmount;
+        private System.Windows.Forms.Label labelSellStocksChooseStock;
+        private System.Windows.Forms.Button btnSellStocksSell;
+        private System.Windows.Forms.ComboBox comboBoxSellStocksAmount;
+        private System.Windows.Forms.ComboBox comboBoxSellStocksChoose;
+        private System.Windows.Forms.DataGridView dataGridViewBuyStocks;
+        private System.Windows.Forms.DataGridView dataGridViewSellStocks;
+        private System.Windows.Forms.Label labelBuyStocksMarket;
+        private System.Windows.Forms.Label labelSellStocksStockPortfolio;
+        private System.Windows.Forms.Label labelBuyStocksAmount;
+        private System.Windows.Forms.Label labelBuyStocksChooseStock;
+        private System.Windows.Forms.Button btnBuyStocksBuy;
+        private System.Windows.Forms.ComboBox comboBoxBuyStocksAmount;
+        private System.Windows.Forms.ComboBox comboBoxBuyStocksChoose;
+    }
+}
