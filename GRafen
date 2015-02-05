@@ -1,0 +1,174 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+
+
+namespace StockExchange
+{
+    public partial class StockCompare : Form
+    {
+        private int i = 0;
+        private List<String> ChartList = new List<string>();
+        public StockCompare()
+        {
+            
+            
+            InitializeComponent();
+
+            
+            
+            foreach(Stock s in Conn.GetStocks())  {
+
+                String stock = s.sName;
+                comboBox1.Items.Add(stock);
+            }
+            
+            dataGridView1.ColumnCount = 6;
+            dataGridView1.Columns[0].Name = "Name";
+            dataGridView1.Columns[1].Name = "Stock Info";
+            dataGridView1.Columns[2].Name = "Current Value";
+            dataGridView1.Columns[3].Name = "Old Value";
+            dataGridView1.Columns[4].Name = "Date";
+            dataGridView1.Columns[5].Name = "Change %";
+
+        }   
+
+        Controller Conn = new Controller();
+
+         
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox2.Items.Clear();
+
+            String SelectedValue = comboBox1.Text;
+            
+
+            foreach (Stockvalue s in Conn.GetStockValues(SelectedValue))
+            {
+
+                String date = s.date;
+                comboBox2.Items.Add(date);
+            }
+            
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           String SelectedValue = comboBox1.Text;
+           String SelectedValue2 = comboBox2.Text;
+
+           Stock Stock = Conn.GetStock(SelectedValue);
+           Stockvalue Stockvalue = Conn.GetStockValue(SelectedValue, SelectedValue2);
+           
+           Double CurrentValue = Convert.ToDouble(Stock.currentValue);
+           Double OldValue = Convert.ToDouble(Stockvalue.value);
+           Double Change = (((CurrentValue / OldValue) * 100)-100);
+           String SName = Stock.sName;
+           String SInfo = Stock.sInfo;
+           String Date = Stockvalue.date;
+           Change = Math.Round(Change, 2);
+           String ChangeString = Change.ToString();
+           String OldValueString = OldValue.ToString();
+           String CurrentValueString = CurrentValue.ToString();
+
+
+           string[] row = new string[] { SName, SInfo, CurrentValueString, OldValueString, Date, ChangeString};
+           dataGridView1.Rows.Add(row);
+
+           
+           
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            chart1.Series.Clear();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            String SelectedValue = comboBox1.Text;
+           
+           if (ChartList.Contains(SelectedValue))
+                {
+                   MessageBox.Show("Stock is Already in chart");   
+                }
+            else{       
+
+            ChartList.Add(SelectedValue);
+
+            chart1.Series.Add(SelectedValue);
+            chart1.Series[SelectedValue].ChartArea = "area";
+            chart1.Series[SelectedValue].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            chart1.Series[SelectedValue].XValueType = ChartValueType.DateTime;
+               
+            DateTime minDate = new DateTime(DateTime.Now.Ticks).AddYears(-1);
+            DateTime maxDate = new DateTime(DateTime.Now.Ticks);
+            
+            chart1.ChartAreas["area"].AxisX.Minimum = minDate.ToOADate();
+            chart1.ChartAreas["area"].AxisX.Maximum = maxDate.ToOADate();
+            chart1.ChartAreas["area"].AxisX.LabelStyle.Format = "dd/MM/yyyy";
+
+            List<Stockvalue> Stockvalue = Conn.GetStockValues(SelectedValue);
+
+            foreach(Stockvalue s in Stockvalue)
+               {
+                   String StringDate = s.date;
+                   DateTime Date2 = DateTime.ParseExact(StringDate, "yyyy/MM/dd", null);
+
+                   Double Value = Convert.ToDouble(s.value);
+
+                   chart1.Series[i].Points.AddXY(Date2, Value);
+                }
+            
+            Stock TmpStock = Conn.GetStock(SelectedValue);
+
+            Double CurrentValue = Convert.ToDouble(TmpStock.currentValue);
+            
+            chart1.Series[i].Points.AddXY(maxDate, CurrentValue);
+            
+            labelStock0.Text = SelectedValue;
+            labelStock0.ForeColor = chart1.Series[i].Color;
+
+            i++;
+            }
+         
+        }
+
+        private void chart1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelStock1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+       
+
+        
+    }
+}
