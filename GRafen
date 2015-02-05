@@ -16,6 +16,10 @@ namespace StockExchange
     {
         private int i = 0;
         private List<String> ChartList = new List<string>();
+        
+       
+
+
         public StockCompare()
         {
             
@@ -55,6 +59,7 @@ namespace StockExchange
 
                 String date = s.date;
                 comboBox2.Items.Add(date);
+                
             }
             
         }
@@ -102,6 +107,8 @@ namespace StockExchange
         {
             dataGridView1.Rows.Clear();
             chart1.Series.Clear();
+            ChartList.Clear();
+            i = 0;
 
         }
 
@@ -113,14 +120,21 @@ namespace StockExchange
                 {
                    MessageBox.Show("Stock is Already in chart");   
                 }
+           else if(i>=5)
+           {
+               MessageBox.Show("Pls only 5 stock pls");
+           }
             else{       
 
             ChartList.Add(SelectedValue);
+
 
             chart1.Series.Add(SelectedValue);
             chart1.Series[SelectedValue].ChartArea = "area";
             chart1.Series[SelectedValue].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             chart1.Series[SelectedValue].XValueType = ChartValueType.DateTime;
+
+           
                
             DateTime minDate = new DateTime(DateTime.Now.Ticks).AddYears(-1);
             DateTime maxDate = new DateTime(DateTime.Now.Ticks);
@@ -140,19 +154,50 @@ namespace StockExchange
 
                    chart1.Series[i].Points.AddXY(Date2, Value);
                 }
-            
-            Stock TmpStock = Conn.GetStock(SelectedValue);
 
-            Double CurrentValue = Convert.ToDouble(TmpStock.currentValue);
+                Stock TmpStock = Conn.GetStock(SelectedValue);
+
+                Double CurrentValue = Convert.ToDouble(TmpStock.currentValue);
+
+                chart1.Series[i].Points.AddXY(maxDate, CurrentValue);
             
-            chart1.Series[i].Points.AddXY(maxDate, CurrentValue);
             
-            labelStock0.Text = SelectedValue;
-            labelStock0.ForeColor = chart1.Series[i].Color;
+               if(i==0)
+               {
+                   labelStock1.Text = SelectedValue;
+                   labelStock1.ForeColor = System.Drawing.Color.DarkGreen;
+               }
+               if(i==1)
+               {
+                   labelStock2.Text = SelectedValue;
+                   labelStock2.ForeColor = System.Drawing.Color.Blue;
+
+               }
+                if(i==2)
+               {
+                   labelStock3.Text = SelectedValue;
+                   labelStock3.ForeColor = System.Drawing.Color.Maroon;
+
+               }
+                if(i==3)
+               {
+                   labelstock4.Text = SelectedValue;
+                   labelstock4.ForeColor = System.Drawing.Color.Purple;
+
+               }
+                if(i==4)
+               {
+                   labelStock5.Text = SelectedValue;
+                   labelStock5.ForeColor = System.Drawing.Color.Yellow;
+
+               }
+       
+            
 
             i++;
             }
-         
+          
+           
         }
 
         private void chart1_Click_1(object sender, EventArgs e)
@@ -172,3 +217,4 @@ namespace StockExchange
         
     }
 }
+
