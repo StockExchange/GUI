@@ -25,6 +25,7 @@ namespace StockExchange
             
             
             InitializeComponent();
+            dataGridView1.ReadOnly = true;
 
             
             
@@ -93,7 +94,9 @@ namespace StockExchange
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+          
+            var Cell = dataGridView1[0, e.RowIndex].Value;
+            MessageBox.Show(Cell.ToString());
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -280,5 +283,7 @@ namespace StockExchange
             }
              
         }
+
+      
     }
 }
