@@ -66,9 +66,9 @@ namespace StockExchange
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-           String SelectedValue = comboBox1.Text;
-           String SelectedValue2 = comboBox2.Text;
-
+            String SelectedValue = comboBox1.Text;
+            String SelectedValue2 = comboBox2.Text;
+         
            Stock Stock = Conn.GetStock(SelectedValue);
            Stockvalue Stockvalue = Conn.GetStockValue(SelectedValue, SelectedValue2);
            
@@ -105,98 +105,20 @@ namespace StockExchange
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-            chart1.Series.Clear();
-            ChartList.Clear();
-            i = 0;
-
+            ClearAll();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            String SelectedValue = comboBox1.Text;
-           
-           if (ChartList.Contains(SelectedValue))
-                {
-                   MessageBox.Show("Stock is Already in chart");   
-                }
-           else if(i>=5)
-           {
-               MessageBox.Show("Pls only 5 stock pls");
-           }
-            else{       
 
-            ChartList.Add(SelectedValue);
-
-
-            chart1.Series.Add(SelectedValue);
-            chart1.Series[SelectedValue].ChartArea = "area";
-            chart1.Series[SelectedValue].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            chart1.Series[SelectedValue].XValueType = ChartValueType.DateTime;
-
-           
-               
             DateTime minDate = new DateTime(DateTime.Now.Ticks).AddYears(-1);
             DateTime maxDate = new DateTime(DateTime.Now.Ticks);
-            
+
             chart1.ChartAreas["area"].AxisX.Minimum = minDate.ToOADate();
             chart1.ChartAreas["area"].AxisX.Maximum = maxDate.ToOADate();
             chart1.ChartAreas["area"].AxisX.LabelStyle.Format = "dd/MM/yyyy";
 
-            List<Stockvalue> Stockvalue = Conn.GetStockValues(SelectedValue);
 
-            foreach(Stockvalue s in Stockvalue)
-               {
-                   String StringDate = s.date;
-                   DateTime Date2 = DateTime.ParseExact(StringDate, "yyyy/MM/dd", null);
-
-                   Double Value = Convert.ToDouble(s.value);
-
-                   chart1.Series[i].Points.AddXY(Date2, Value);
-                }
-
-                Stock TmpStock = Conn.GetStock(SelectedValue);
-
-                Double CurrentValue = Convert.ToDouble(TmpStock.currentValue);
-
-                chart1.Series[i].Points.AddXY(maxDate, CurrentValue);
-            
-            
-               if(i==0)
-               {
-                   labelStock1.Text = SelectedValue;
-                   labelStock1.ForeColor = System.Drawing.Color.DarkGreen;
-               }
-               if(i==1)
-               {
-                   labelStock2.Text = SelectedValue;
-                   labelStock2.ForeColor = System.Drawing.Color.Blue;
-
-               }
-                if(i==2)
-               {
-                   labelStock3.Text = SelectedValue;
-                   labelStock3.ForeColor = System.Drawing.Color.Maroon;
-
-               }
-                if(i==3)
-               {
-                   labelstock4.Text = SelectedValue;
-                   labelstock4.ForeColor = System.Drawing.Color.Purple;
-
-               }
-                if(i==4)
-               {
-                   labelStock5.Text = SelectedValue;
-                   labelStock5.ForeColor = System.Drawing.Color.Yellow;
-
-               }
-       
-            
-
-            i++;
-            }
-          
            
         }
 
@@ -210,11 +132,153 @@ namespace StockExchange
 
         }
 
-        
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DateTime minDate = new DateTime(DateTime.Now.Ticks).AddMonths(-3);
+            DateTime maxDate = new DateTime(DateTime.Now.Ticks);
 
+            chart1.ChartAreas["area"].AxisX.Minimum = minDate.ToOADate();
+            chart1.ChartAreas["area"].AxisX.Maximum = maxDate.ToOADate();
+            chart1.ChartAreas["area"].AxisX.LabelStyle.Format = "dd/MM/yyyy";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            DateTime minDate = new DateTime(DateTime.Now.Ticks).AddMonths(-1);
+            DateTime maxDate = new DateTime(DateTime.Now.Ticks);
+
+            chart1.ChartAreas["area"].AxisX.Minimum = minDate.ToOADate();
+            chart1.ChartAreas["area"].AxisX.Maximum = maxDate.ToOADate();
+            chart1.ChartAreas["area"].AxisX.LabelStyle.Format = "dd/MM/yyyy";
+            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DateTime minDate = new DateTime(DateTime.Now.Ticks).AddDays(-7);
+            DateTime maxDate = new DateTime(DateTime.Now.Ticks);
+
+            chart1.ChartAreas["area"].AxisX.Minimum = minDate.ToOADate();
+            chart1.ChartAreas["area"].AxisX.Maximum = maxDate.ToOADate();
+            chart1.ChartAreas["area"].AxisX.LabelStyle.Format = "dd/MM/yyyy";
+        }
+        public void SetColor(int i)
+             {
+           String SelectedValue =  comboBox1.Text;
+             if (i == 0)
+            {
+                labelStock1.Text = SelectedValue;
+                labelStock1.ForeColor = System.Drawing.Color.DarkGreen;
+            }
+            if (i == 1)
+            {
+                labelStock2.Text = SelectedValue;
+                labelStock2.ForeColor = System.Drawing.Color.Blue;
+
+            }
+            if (i == 2)
+            {
+                labelStock3.Text = SelectedValue;
+                labelStock3.ForeColor = System.Drawing.Color.Maroon;
+
+            }
+            if (i == 3)
+            {
+                labelstock4.Text = SelectedValue;
+                labelstock4.ForeColor = System.Drawing.Color.Purple;
+
+            }
+            if (i == 4)
+            {
+                labelStock5.Text = SelectedValue;
+                labelStock5.ForeColor = System.Drawing.Color.Yellow;
+
+            }
+            }
        
-
+        public void ClearAll()
+            {
+                dataGridView1.Rows.Clear();
+                chart1.Series.Clear();
+                ChartList.Clear();
+                i = 0;
+                labelStock1.ForeColor = SystemColors.Control;
+                labelStock2.ForeColor = SystemColors.Control;
+                labelStock3.ForeColor = SystemColors.Control;
+                labelstock4.ForeColor = SystemColors.Control;
+                labelStock5.ForeColor = SystemColors.Control;
+            }
+     
+        public void UpdateChart(String SelectedValue)
+        {
         
+                ChartList.Add(SelectedValue);
+
+                DateTime maxDate = new DateTime(DateTime.Now.Ticks);
+
+                List<Stockvalue> Stockvalue = Conn.GetStockValues(SelectedValue);
+
+                foreach (Stockvalue s in Stockvalue)
+                {
+                String StringDate = s.date;
+                DateTime Date2 = DateTime.ParseExact(StringDate, "yyyy/MM/dd", null);
+
+                Double Value = Convert.ToDouble(s.value);
+
+                chart1.Series[i].Points.AddXY(Date2, Value);
+                 }
+
+                Stock TmpStock = Conn.GetStock(SelectedValue);
+
+                Double CurrentValue = Convert.ToDouble(TmpStock.currentValue);
+
+                chart1.Series[i].Points.AddXY(maxDate, CurrentValue);
+
+                SetColor(i);
+                i++;
+            
+            }
+        
+        public String CreateSeries(String SelectedValue)
+        {
+             String SV = SelectedValue;
+
+            if (ChartList.Contains(SV))
+                {
+                   MessageBox.Show("Stock is Already in chart");
+                   return null;
+                }
+           else if(i>=5)
+           {
+               MessageBox.Show("Pls only 5 stock pls");
+               return null;
+           }
+            else{       
+
+            chart1.Series.Add(SelectedValue);
+            chart1.Series[SV].ChartArea = "area";
+            chart1.Series[SV].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            chart1.Series[SV].XValueType = ChartValueType.DateTime;
+            
+            return "added";
+
+            
+            
+           }
+            
+        }
+
+        private void ButtonUpdate_Click(object sender, EventArgs e)
+        {
+            String SelectedValue = comboBox1.Text;
+
+            String AlredyExists = CreateSeries(SelectedValue);
+            if(AlredyExists == "added"){
+
+            UpdateChart(SelectedValue);
+            }
+             
+        }
     }
 }
-
