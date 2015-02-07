@@ -30,11 +30,11 @@ namespace StockExchange
         {
             this.titleLogIn = new System.Windows.Forms.Label();
             this.userIdTextBox = new System.Windows.Forms.TextBox();
-            this.userIdLabel = new System.Windows.Forms.Label();
+            this.labelLogInUserId = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.passwordLabel = new System.Windows.Forms.Label();
-            this.logInBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.labelLogInPassword = new System.Windows.Forms.Label();
+            this.btnLogIn = new System.Windows.Forms.Button();
+            this.btnSignUp = new System.Windows.Forms.Button();
             this.userIdSignUpTextBox = new System.Windows.Forms.TextBox();
             this.passwordSignUpTextBox = new System.Windows.Forms.TextBox();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
@@ -47,6 +47,7 @@ namespace StockExchange
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.addressLabel = new System.Windows.Forms.Label();
             this.nINrLabel = new System.Windows.Forms.Label();
+            this.labelLogInErrorMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titleLogIn
@@ -68,15 +69,15 @@ namespace StockExchange
             this.userIdTextBox.TabIndex = 1;
             this.userIdTextBox.TextChanged += new System.EventHandler(this.userIdTextBox_TextChanged);
             // 
-            // userIdLabel
+            // labelLogInUserId
             // 
-            this.userIdLabel.AutoSize = true;
-            this.userIdLabel.Location = new System.Drawing.Point(26, 228);
-            this.userIdLabel.Name = "userIdLabel";
-            this.userIdLabel.Size = new System.Drawing.Size(64, 20);
-            this.userIdLabel.TabIndex = 2;
-            this.userIdLabel.Text = "User ID";
-            this.userIdLabel.Click += new System.EventHandler(this.label1_Click_1);
+            this.labelLogInUserId.AutoSize = true;
+            this.labelLogInUserId.Location = new System.Drawing.Point(26, 228);
+            this.labelLogInUserId.Name = "labelLogInUserId";
+            this.labelLogInUserId.Size = new System.Drawing.Size(64, 20);
+            this.labelLogInUserId.TabIndex = 2;
+            this.labelLogInUserId.Text = "User ID";
+            this.labelLogInUserId.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // passwordTextBox
             // 
@@ -86,34 +87,35 @@ namespace StockExchange
             this.passwordTextBox.TabIndex = 3;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
-            // passwordLabel
+            // labelLogInPassword
             // 
-            this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(12, 316);
-            this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(78, 20);
-            this.passwordLabel.TabIndex = 5;
-            this.passwordLabel.Text = "Password";
-            this.passwordLabel.Click += new System.EventHandler(this.label2_Click);
+            this.labelLogInPassword.AutoSize = true;
+            this.labelLogInPassword.Location = new System.Drawing.Point(12, 316);
+            this.labelLogInPassword.Name = "labelLogInPassword";
+            this.labelLogInPassword.Size = new System.Drawing.Size(78, 20);
+            this.labelLogInPassword.TabIndex = 5;
+            this.labelLogInPassword.Text = "Password";
+            this.labelLogInPassword.Click += new System.EventHandler(this.label2_Click);
             // 
-            // logInBtn
+            // btnLogIn
             // 
-            this.logInBtn.Location = new System.Drawing.Point(131, 439);
-            this.logInBtn.Name = "logInBtn";
-            this.logInBtn.Size = new System.Drawing.Size(100, 55);
-            this.logInBtn.TabIndex = 6;
-            this.logInBtn.Text = "Log in";
-            this.logInBtn.UseVisualStyleBackColor = true;
-            this.logInBtn.Click += new System.EventHandler(this.logInBtn_Click);
+            this.btnLogIn.Location = new System.Drawing.Point(131, 439);
+            this.btnLogIn.Name = "btnLogIn";
+            this.btnLogIn.Size = new System.Drawing.Size(100, 55);
+            this.btnLogIn.TabIndex = 6;
+            this.btnLogIn.Text = "Log in";
+            this.btnLogIn.UseVisualStyleBackColor = true;
+            this.btnLogIn.Click += new System.EventHandler(this.logInBtn_Click);
             // 
-            // button1
+            // btnSignUp
             // 
-            this.button1.Location = new System.Drawing.Point(567, 439);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 55);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Sign up";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSignUp.Location = new System.Drawing.Point(567, 439);
+            this.btnSignUp.Name = "btnSignUp";
+            this.btnSignUp.Size = new System.Drawing.Size(100, 55);
+            this.btnSignUp.TabIndex = 7;
+            this.btnSignUp.Text = "Sign up";
+            this.btnSignUp.UseVisualStyleBackColor = true;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // userIdSignUpTextBox
             // 
@@ -121,6 +123,7 @@ namespace StockExchange
             this.userIdSignUpTextBox.Name = "userIdSignUpTextBox";
             this.userIdSignUpTextBox.Size = new System.Drawing.Size(216, 26);
             this.userIdSignUpTextBox.TabIndex = 8;
+            this.userIdSignUpTextBox.TextChanged += new System.EventHandler(this.userIdSignUpTextBox_TextChanged);
             // 
             // passwordSignUpTextBox
             // 
@@ -128,6 +131,7 @@ namespace StockExchange
             this.passwordSignUpTextBox.Name = "passwordSignUpTextBox";
             this.passwordSignUpTextBox.Size = new System.Drawing.Size(216, 26);
             this.passwordSignUpTextBox.TabIndex = 9;
+            this.passwordSignUpTextBox.TextChanged += new System.EventHandler(this.passwordSignUpTextBox_TextChanged);
             // 
             // firstNameTextBox
             // 
@@ -135,6 +139,7 @@ namespace StockExchange
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(216, 26);
             this.firstNameTextBox.TabIndex = 10;
+            this.firstNameTextBox.TextChanged += new System.EventHandler(this.firstNameTextBox_TextChanged);
             // 
             // lastNameTextBox
             // 
@@ -142,6 +147,7 @@ namespace StockExchange
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(216, 26);
             this.lastNameTextBox.TabIndex = 11;
+            this.lastNameTextBox.TextChanged += new System.EventHandler(this.lastNameTextBox_TextChanged);
             // 
             // addressTextBox
             // 
@@ -149,6 +155,7 @@ namespace StockExchange
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(216, 26);
             this.addressTextBox.TabIndex = 12;
+            this.addressTextBox.TextChanged += new System.EventHandler(this.addressTextBox_TextChanged);
             // 
             // nINrTextBox
             // 
@@ -156,6 +163,7 @@ namespace StockExchange
             this.nINrTextBox.Name = "nINrTextBox";
             this.nINrTextBox.Size = new System.Drawing.Size(216, 26);
             this.nINrTextBox.TabIndex = 13;
+            this.nINrTextBox.TextChanged += new System.EventHandler(this.nINrTextBox_TextChanged);
             // 
             // userIdSignUpLabel
             // 
@@ -211,12 +219,23 @@ namespace StockExchange
             this.nINrLabel.TabIndex = 19;
             this.nINrLabel.Text = "National ID Number";
             // 
+            // labelLogInErrorMessage
+            // 
+            this.labelLogInErrorMessage.AutoSize = true;
+            this.labelLogInErrorMessage.ForeColor = System.Drawing.Color.Red;
+            this.labelLogInErrorMessage.Location = new System.Drawing.Point(275, 505);
+            this.labelLogInErrorMessage.Name = "labelLogInErrorMessage";
+            this.labelLogInErrorMessage.Size = new System.Drawing.Size(0, 20);
+            this.labelLogInErrorMessage.TabIndex = 20;
+            this.labelLogInErrorMessage.Click += new System.EventHandler(this.label1_Click_2);
+            // 
             // loginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(778, 544);
+            this.Controls.Add(this.labelLogInErrorMessage);
             this.Controls.Add(this.nINrLabel);
             this.Controls.Add(this.addressLabel);
             this.Controls.Add(this.lastNameLabel);
@@ -229,14 +248,15 @@ namespace StockExchange
             this.Controls.Add(this.firstNameTextBox);
             this.Controls.Add(this.passwordSignUpTextBox);
             this.Controls.Add(this.userIdSignUpTextBox);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.logInBtn);
-            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.btnSignUp);
+            this.Controls.Add(this.btnLogIn);
+            this.Controls.Add(this.labelLogInPassword);
             this.Controls.Add(this.passwordTextBox);
-            this.Controls.Add(this.userIdLabel);
+            this.Controls.Add(this.labelLogInUserId);
             this.Controls.Add(this.userIdTextBox);
             this.Controls.Add(this.titleLogIn);
             this.Name = "loginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock Exchange";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
@@ -248,11 +268,11 @@ namespace StockExchange
 
         private System.Windows.Forms.Label titleLogIn;
         private System.Windows.Forms.TextBox userIdTextBox;
-        private System.Windows.Forms.Label userIdLabel;
+        private System.Windows.Forms.Label labelLogInUserId;
         private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.Label passwordLabel;
-        private System.Windows.Forms.Button logInBtn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelLogInPassword;
+        private System.Windows.Forms.Button btnLogIn;
+        private System.Windows.Forms.Button btnSignUp;
         private System.Windows.Forms.TextBox userIdSignUpTextBox;
         private System.Windows.Forms.TextBox passwordSignUpTextBox;
         private System.Windows.Forms.TextBox firstNameTextBox;
@@ -265,5 +285,6 @@ namespace StockExchange
         private System.Windows.Forms.Label lastNameLabel;
         private System.Windows.Forms.Label addressLabel;
         private System.Windows.Forms.Label nINrLabel;
+        private System.Windows.Forms.Label labelLogInErrorMessage;
     }
 }
