@@ -1,0 +1,177 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Threading;
+
+namespace StockExchange
+{
+    public partial class loginForm : Form
+    {
+        private String UserType;
+        private String UserId;
+        private String Password;
+
+        Controller controller = new Controller();
+        Thread thread;
+        
+
+        public loginForm()
+        {
+            InitializeComponent();
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userIdTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            passwordTextBox.PasswordChar = '*';
+        }
+
+        private void logInBtn_Click(object sender, EventArgs e)
+        {
+            
+            UserId = userIdTextBox.Text;
+            Password = passwordTextBox.Text;
+
+            UserType = controller.LoginCheck(UserId, Password);
+
+            if (UserType == null)
+            {
+                String timerMessage = "Failed To Log In";
+                Timer(timerMessage, labelLogInErrorMessage);
+            }
+            else if (UserType == "admin")
+            {
+                this.Close();
+                thread = new Thread(OpenNewFormAdmin);
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
+            }
+            else if (UserType == "user")
+            {
+                this.Close();
+                thread = new Thread(OpenNewFormUser);
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
+            }
+
+        }
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {  
+            String signUpUserId = userIdSignUpTextBox.Text;
+            String signUpPassword = passwordSignUpTextBox.Text;
+            String FirstName = firstNameTextBox.Text;
+            String LastName = lastNameTextBox.Text;
+            String Address = addressTextBox.Text;
+            String NINr = nINrTextBox.Text;
+            Double Account = 1000;
+            String UserAdded = controller.SetUsers(signUpUserId, signUpPassword, FirstName, LastName, Address, NINr, Account);
+
+            if (UserAdded == null)
+            {
+                String timerMessage = "Form is not Filled in Correct Or The User ID Already Exists";
+                Timer(timerMessage, labelLogInErrorMessage);
+            }
+            
+            else if(UserAdded == "added")
+            {
+                String timerMessage = "User Added";
+                Timer(timerMessage, labelLogInErrorMessage);
+            }
+               
+        }
+      
+        private void OpenNewFormAdmin()
+        {
+            Application.Run(new Admin(UserId));
+        }
+        private void OpenNewFormUser()
+        {
+            Application.Run(new User(UserId));
+        }
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userIdSignUpTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passwordSignUpTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void firstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lastNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addressTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nINrTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        /*------------- Method ---------------------------------- */
+
+        public void Timer (String timerMessage, Label Label)
+        {
+            Label.Text = timerMessage;
+            var t = new System.Windows.Forms.Timer();
+            t.Interval = 3000;
+            t.Tick += (s, ex) =>
+            {
+                Label.Text = "";
+
+
+                t.Stop();
+            };
+            t.Start();
+        }
+       
+    }
+}
+
+
