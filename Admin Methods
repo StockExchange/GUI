@@ -1,0 +1,255 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+
+namespace StockExchange
+{
+    public partial class Admin : Form
+    {
+        Controller controller = new Controller();
+
+        public Admin(String UserId)
+        {
+            InitializeComponent();
+        }
+
+        private void tabPageAccount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdateAdmin_Click(object sender, EventArgs e)
+        {
+            String adminId = textBoxAdminId.Text;
+            String adminPassword = textBoxAdminPassword.Text;
+            String name = textBoxAdminName.Text;
+         //   Administrator updatedAdmin = controller.UpdateAdmin(adminId, name, adminPassword);
+
+            if (textBoxAdminId.Text == null)
+            {
+                String timerMessage = "Failed To Up";
+                Timer(timerMessage, labelAddAdminMessage);
+
+            }
+            else if (controller.UpdateAdmin(adminId, name, adminPassword) != null)
+            {
+                String timerMessage = "Admin Updated";
+                Timer(timerMessage, labelAddAdminMessage);
+            }
+            else 
+            {
+                String timerMessage = "Failed To Up";
+                Timer(timerMessage, labelAddAdminMessage);
+            }
+        }
+
+       
+
+        private void btnSearchStock_Click(object sender, EventArgs e)
+        {
+            String sName = textBoxStockName.Text;
+            Stock tmpStock = controller.GetStock(sName);
+            
+            if (tmpStock != null) 
+            {
+                textBoxStockName.Text = tmpStock.sName;
+                textBoxStockInfo.Text = tmpStock.sInfo;
+                textBoxStockValue.Text = Convert.ToString(tmpStock.currentValue);
+                textBoxOrgNr.Text = tmpStock.orgNr;
+            }
+            else
+            {
+                String timerMessage = "Search Failed";
+                Timer(timerMessage, labelMessage);
+            }
+        }
+
+        private void btnAddStock_Click(object sender, EventArgs e)
+        {
+
+            String stockName = textBoxStockName.Text;
+            String stockInfo = textBoxStockInfo.Text;
+            String stringStockValue = textBoxStockValue.Text;
+            Double stockValue = Convert.ToDouble(stringStockValue);
+            String orgNR = textBoxOrgNr.Text;
+            String AddStock = controller.SetStock(stockName, stockInfo, stockValue, orgNR);
+
+            if (AddStock == null)
+            {
+                String timerMessage = "Failed to Add Stock";
+                Timer(timerMessage, labelAddEditStockMessage);
+            }
+            else if (AddStock == "added")
+            {
+                String timerMessage = "Stock Added";
+                Timer(timerMessage, labelAddEditStockMessage);
+            }
+        }
+
+        private void btnUpdateStock_Click(object sender, EventArgs e)
+        {
+            String sName = textBoxStockName.Text;
+            Double sValue = Convert.ToDouble(textBoxStockValue.Text);
+            String updatedStock = controller.UpdateStock(sName, sValue);
+
+            if (updatedStock == "added")
+            {
+                String timerMessage = "Stock Updated";
+                Timer(timerMessage, labelAddEditStockMessage);
+            }
+            else 
+            {
+                String timerMessage = "Failed To Update Stock";
+                Timer(timerMessage, labelAddEditStockMessage);
+            }
+        }
+
+        private void btnAddAdmin_Click(object sender, EventArgs e)
+        {
+            String adminId = textBoxAdminId.Text;
+            String password = textBoxAdminPassword.Text;
+            String name = textBoxAdminName.Text;
+            String AdminAdded = controller.SetAdmin(adminId, password, name);
+
+            if (AdminAdded == null)
+            {
+                String timerMessage = "Failed to Add Admin";
+                Timer(timerMessage, labelAddAdminMessage);
+            }
+            else  
+            {
+                String timerMessage = "Admin Added";
+                Timer(timerMessage, labelAddAdminMessage);
+            }
+        }
+
+        private void btnRemoveStock_Click(object sender, EventArgs e)
+        {
+            String sName = textBoxStockName.Text;
+            String removeStock = controller.RemoveStock(sName);
+
+            if (removeStock == "removed")
+            {
+                String timerMessage = "Stock Removed";
+                Timer(timerMessage, labelAddEditStockMessage);
+            }
+            else
+            {
+              
+                String timerMessage = "Stock failed to remove";
+                Timer(timerMessage, labelAddEditStockMessage);
+                
+            }
+        }
+        private void btnSearchAdmin_Click(object sender, EventArgs e)
+        {
+            String adminId = textBoxAdminId.Text;
+            Administrator adminSearch = controller.GetAdmin(adminId);
+
+            if (adminSearch != null)
+            {
+                textBoxAdminId.Text = adminSearch.adminId;
+                textBoxAdminPassword.Text = adminSearch.pWord;
+                textBoxAdminName.Text = adminSearch.name;
+            }
+            else
+            {
+                String timerMessage = "Search Failed";
+                Timer(timerMessage, labelAddAdminMessage);
+            }
+
+        }
+        private void btnSearchUser_Click(object sender, EventArgs e)
+        {
+            String userId = textBoxAdminUserId.Text;
+            Users searchUser = controller.GetUser(userId);
+
+            if (searchUser != null)
+            {
+                textBoxAdminUserId.Text = searchUser.userId;
+                textBoxAdminUserPassword.Text = searchUser.pWord;
+                textBoxAdminFirstName.Text = searchUser.fName;
+                textBoxAdminLastName.Text = searchUser.lName;
+                textBoxAdminAddress.Text = searchUser.address;
+                textBoxAdminNationalIdNumber.Text = searchUser.niNr;
+                textBoxAdminAccount.Text = Convert.ToString(searchUser.account);
+            }
+            else 
+            {
+                String timerMessage = "Search failed";
+                Timer(timerMessage, labelEditRemoveUser);
+            }
+        }
+        private void btnRemoveUser_Click(object sender, EventArgs e)
+        {
+            String userId = textBoxAdminUserId.Text;
+            String removeUser = controller.RemoveUser(userId);
+
+            if (removeUser == "removed")
+            {
+                String timerMessage = "User Removed";
+                Timer(timerMessage, labelEditRemoveUser);
+            }
+            else 
+            {
+                String timerMessage = "User failed to remove";
+                Timer(timerMessage, labelEditRemoveUser);
+            }
+        }
+        private void btnUpdateUser_Click(object sender, EventArgs e)
+        {
+            String userId = textBoxAdminUserId.Text;
+            String password = textBoxAdminUserPassword.Text;
+            String fName = textBoxAdminFirstName.Text;
+            String lName = textBoxAdminLastName.Text;
+            String address = textBoxAdminAddress.Text;
+            String nationalIdNbr = textBoxAdminNationalIdNumber.Text;
+            Double account = Convert.ToDouble(textBoxAdminAccount.Text);
+            Users updateUser = controller.UpdateUsers(userId, password, fName, lName, address, nationalIdNbr, account);
+
+            if (updateUser != null)
+            {
+                String timerMessage = "User Updated";
+                Timer(timerMessage, labelEditRemoveUser);
+            }
+            else 
+            {
+                String timerMessage = "User failed to update";
+                Timer(timerMessage, labelEditRemoveUser);
+            }
+        } 
+        
+        
+        /*---------------------------- Methods -------------------------------------------*/
+
+
+        public void Timer(String timerMessage, Label Label)
+            {
+                Label.Text = timerMessage;
+                  var t = new Timer();
+                t.Interval = 3000;
+                t.Tick += (s, ex) =>
+                {
+                    Label.Text = "";
+                    
+                    
+                    t.Stop();
+                };
+                t.Start();
+            }
+
+        private void textBoxAdminId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    
+        }
+    }
+
