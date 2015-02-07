@@ -1,0 +1,245 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+
+
+namespace StockExchange
+{
+    public partial class User : Form
+    {
+        private int i = 0;
+        private List<String> ChartList = new List<string>();
+        public User(String UserId)
+        {
+            InitializeComponent();
+          dataGridViewStockPortfolioShowStocks.ReadOnly = true;
+
+          dataGridViewStockPortfolioShowStocks.ColumnCount = 4;
+
+          dataGridViewStockPortfolioShowStocks.Columns[0].Name = "Name";
+          dataGridViewStockPortfolioShowStocks.Columns[1].Name = "Stock Info";
+          dataGridViewStockPortfolioShowStocks.Columns[2].Name = "Org Number";
+          dataGridViewStockPortfolioShowStocks.Columns[3].Name = "Current Value";
+          List<Stock> tmpStockList = controller.GetStocks();
+
+          foreach (Stock s in tmpStockList)
+          {
+              String SName = s.sName;
+              String SInfo = s.sInfo;
+              String OrgNr = s.orgNr;
+              String CurrentValueString = s.currentValue.ToString();
+              string[] row = new string[4] { SName, SInfo, OrgNr, CurrentValueString };
+              dataGridViewStockPortfolioShowStocks.Rows.Add(row);
+          }
+
+
+        }
+        Controller controller = new Controller();
+
+        private void tabPageStockPortfolio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxStockPortfolioChooseStocks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUserUpdate_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DateTime minDate = new DateTime(DateTime.Now.Ticks).AddMonths(-3);
+            DateTime maxDate = new DateTime(DateTime.Now.Ticks);
+            chartStockPortfolioShowStocks.ChartAreas["area"].AxisX.Minimum = minDate.ToOADate();
+            chartStockPortfolioShowStocks.ChartAreas["area"].AxisX.Maximum = maxDate.ToOADate();
+            chartStockPortfolioShowStocks.ChartAreas["area"].AxisX.LabelStyle.Format = "dd/MM/yyyy";
+        }
+
+        private void dataGridViewStockPortfolioShowStocks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            String Cell = dataGridViewStockPortfolioShowStocks[0, e.RowIndex].Value.ToString();
+            String AlredyExists = CreateSeries(Cell);
+
+
+            if (AlredyExists == "added")
+            {
+                UpdateChart(Cell);
+            }
+        }
+
+        private void btnSellStockOneWeek_Click(object sender, System.EventArgs e)
+        {
+            DateTime minDate = new DateTime(DateTime.Now.Ticks).AddDays(-7);
+            DateTime maxDate = new DateTime(DateTime.Now.Ticks);
+            chartStockPortfolioShowStocks.ChartAreas["area"].AxisX.Minimum = minDate.ToOADate();
+            chartStockPortfolioShowStocks.ChartAreas["area"].AxisX.Maximum = maxDate.ToOADate();
+            chartStockPortfolioShowStocks.ChartAreas["area"].AxisX.LabelStyle.Format = "dd/MM/yyyy";
+        }
+
+        private void btnSellStockOneMonth_Click(object sender, System.EventArgs e)
+        {
+            DateTime minDate = new DateTime(DateTime.Now.Ticks).AddMonths(-1);
+            DateTime maxDate = new DateTime(DateTime.Now.Ticks);
+            chartStockPortfolioShowStocks.ChartAreas["area"].AxisX.Minimum = minDate.ToOADate();
+            chartStockPortfolioShowStocks.ChartAreas["area"].AxisX.Maximum = maxDate.ToOADate();
+            chartStockPortfolioShowStocks.ChartAreas["area"].AxisX.LabelStyle.Format = "dd/MM/yyyy";
+        }
+
+        private void btnSellStockOneYear_Click(object sender, System.EventArgs e)
+        {
+            DateTime minDate = new DateTime(DateTime.Now.Ticks).AddYears(-1);
+            DateTime maxDate = new DateTime(DateTime.Now.Ticks);
+            chartStockPortfolioShowStocks.ChartAreas["area"].AxisX.Minimum = minDate.ToOADate();
+            chartStockPortfolioShowStocks.ChartAreas["area"].AxisX.Maximum = maxDate.ToOADate();
+            chartStockPortfolioShowStocks.ChartAreas["area"].AxisX.LabelStyle.Format = "dd/MM/yyyy";
+
+        }
+
+  /*      private void btnUpdateStockPortfolio_Click(object sender, System.EventArgs e)
+        {
+            String Cell = comboBox1.Text;
+            String AlredyExists = CreateSeries(Cell);
+            if(AlredyExists == "added")
+            {
+            UpdateChart(Cell);
+            }
+        }*/
+
+        public void SetColor(String CellValue)
+        {
+            String Cell = CellValue;
+            if (i == 0)
+            {
+                labelStockPortfolioStockSeries1.Text = Cell;
+                labelStockPortfolioStockSeries1.ForeColor = System.Drawing.Color.DarkGreen;
+            }
+            if (i == 1)
+            {
+                labelStockPortfolioStockSeries2.Text = Cell;
+                labelStockPortfolioStockSeries2.ForeColor = System.Drawing.Color.Blue;
+            }
+            if (i == 2)
+            {
+                labelStockPortfolioStockSeries3.Text = Cell;
+                labelStockPortfolioStockSeries3.ForeColor = System.Drawing.Color.Maroon;
+            }
+            if (i == 3)
+            {
+                labelStockPortfolioStockSeries4.Text = Cell;
+                labelStockPortfolioStockSeries4.ForeColor = System.Drawing.Color.Purple;
+            }
+            if (i == 4)
+            {
+                labelStockPortfolioStockSeries5.Text = Cell;
+                labelStockPortfolioStockSeries5.ForeColor = System.Drawing.Color.Yellow;
+            }
+        }
+        public void ClearAll()
+        {
+            dataGridViewStockPortfolioShowStocks.Rows.Clear();
+            chartStockPortfolioShowStocks.Series.Clear();
+            ChartList.Clear();
+            i = 0;
+            labelStockPortfolioStockSeries1.ForeColor = SystemColors.Control;
+            labelStockPortfolioStockSeries2.ForeColor = SystemColors.Control;
+            labelStockPortfolioStockSeries3.ForeColor = SystemColors.Control;
+            labelStockPortfolioStockSeries4.ForeColor = SystemColors.Control;
+            labelStockPortfolioStockSeries5.ForeColor = SystemColors.Control;
+        }
+         public void UpdateChart(String Cell)
+        {
+        ChartList.Add(Cell);
+        DateTime maxDate = new DateTime(DateTime.Now.Ticks);
+        List<Stockvalue> Stockvalue = controller.GetStockValues(Cell);
+        foreach (Stockvalue s in Stockvalue)
+        {
+        String StringDate = s.date;
+        DateTime Date2 = DateTime.ParseExact(StringDate, "yyyy/MM/dd", null);
+        Double Value = Convert.ToDouble(s.value);
+        chartStockPortfolioShowStocks.Series[i].Points.AddXY(Date2, Value);
+        }
+        Stock TmpStock = controller.GetStock(Cell);
+        Double CurrentValue = Convert.ToDouble(TmpStock.currentValue);
+        chartStockPortfolioShowStocks.Series[i].Points.AddXY(maxDate, CurrentValue);
+        SetColor(Cell);
+        i++;
+        }
+        public String CreateSeries(String Cell)
+        {
+        String SV = Cell;
+        if (ChartList.Contains(SV))
+        {
+        MessageBox.Show("Stock is Already in chart");
+        return null;
+        }
+        else if(i>=5)
+        {
+        MessageBox.Show("Pls only 5 stock pls");
+        return null;
+        }
+        else{
+        chartStockPortfolioShowStocks.Series.Add(Cell);
+        chartStockPortfolioShowStocks.Series[SV].ChartArea = "area";
+        chartStockPortfolioShowStocks.Series[SV].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+        chartStockPortfolioShowStocks.Series[SV].XValueType = ChartValueType.DateTime;
+        return "added";
+        }
+        }
+
+        private void btnStockPortfolioClearAll_Click(object sender, System.EventArgs e)
+        {
+            ClearAll();
+        }
+
+        private void labelStockPortfolioStockSeries1_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void labelStockPortfolioStockSeries2_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void labelStockPortfolioStockSeries3_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void labelStockPortfolioStockSeries4_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void labelStockPortfolioStockSeries5_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void chartStockPortfolioShowStocks_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+        
+
+
+    }
+}
