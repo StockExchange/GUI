@@ -31,48 +31,50 @@ namespace StockExchange
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             this.tabControlAddEditStock = new System.Windows.Forms.TabControl();
             this.tabPageAddEditStock = new System.Windows.Forms.TabPage();
+            this.labelAddEditStockMessage = new System.Windows.Forms.Label();
+            this.labelMessage = new System.Windows.Forms.Label();
+            this.btnSearchStock = new System.Windows.Forms.Button();
+            this.btnRemoveStock = new System.Windows.Forms.Button();
+            this.btnUpdateStock = new System.Windows.Forms.Button();
+            this.btnAddStock = new System.Windows.Forms.Button();
+            this.labelOrgNr = new System.Windows.Forms.Label();
+            this.textBoxOrgNr = new System.Windows.Forms.TextBox();
+            this.textBoxStockValue = new System.Windows.Forms.TextBox();
+            this.labelValue = new System.Windows.Forms.Label();
+            this.labelStockInfo = new System.Windows.Forms.Label();
+            this.textBoxStockInfo = new System.Windows.Forms.TextBox();
+            this.labelStockName = new System.Windows.Forms.Label();
+            this.textBoxStockName = new System.Windows.Forms.TextBox();
             this.tabPageAddEditAdmin = new System.Windows.Forms.TabPage();
+            this.labelAddAdminMessage = new System.Windows.Forms.Label();
             this.btnSearchAdmin = new System.Windows.Forms.Button();
             this.btnAddAdmin = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnUpdateAdmin = new System.Windows.Forms.Button();
             this.labelName = new System.Windows.Forms.Label();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.textBoxAdminName = new System.Windows.Forms.TextBox();
+            this.textBoxAdminPassword = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.labelAdminId = new System.Windows.Forms.Label();
             this.textBoxAdminId = new System.Windows.Forms.TextBox();
             this.tabPageAddEditUser = new System.Windows.Forms.TabPage();
-            this.textBoxUserPassword = new System.Windows.Forms.TextBox();
+            this.labelEditRemoveUser = new System.Windows.Forms.Label();
+            this.btnSearchUser = new System.Windows.Forms.Button();
+            this.btnRemoveUser = new System.Windows.Forms.Button();
+            this.btnUpdateUser = new System.Windows.Forms.Button();
+            this.textBoxAdminAccount = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelNationalIdNumber = new System.Windows.Forms.Label();
+            this.textBoxAdminNationalIdNumber = new System.Windows.Forms.TextBox();
+            this.labelAddress = new System.Windows.Forms.Label();
+            this.textBoxAdminAddress = new System.Windows.Forms.TextBox();
+            this.textBoxAdminLastName = new System.Windows.Forms.TextBox();
+            this.labelLastName = new System.Windows.Forms.Label();
+            this.labelFirstName = new System.Windows.Forms.Label();
+            this.textBoxAdminFirstName = new System.Windows.Forms.TextBox();
+            this.textBoxAdminUserPassword = new System.Windows.Forms.TextBox();
             this.labelUserPassword = new System.Windows.Forms.Label();
             this.labelUserId = new System.Windows.Forms.Label();
-            this.textBoxUserId = new System.Windows.Forms.TextBox();
-            this.textBoxFirstName = new System.Windows.Forms.TextBox();
-            this.labelFirstName = new System.Windows.Forms.Label();
-            this.labelLastName = new System.Windows.Forms.Label();
-            this.textBoxLastName = new System.Windows.Forms.TextBox();
-            this.textBoxAddress = new System.Windows.Forms.TextBox();
-            this.labelAddress = new System.Windows.Forms.Label();
-            this.textBoxNationalIdNumber = new System.Windows.Forms.TextBox();
-            this.labelNationalIdNumber = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxAccount = new System.Windows.Forms.TextBox();
-            this.btnUpdateUser = new System.Windows.Forms.Button();
-            this.btnRemoveUser = new System.Windows.Forms.Button();
-            this.btnSearchUser = new System.Windows.Forms.Button();
-            this.textBoxStockName = new System.Windows.Forms.TextBox();
-            this.labelStockName = new System.Windows.Forms.Label();
-            this.textBoxStockInfo = new System.Windows.Forms.TextBox();
-            this.labelStockInfo = new System.Windows.Forms.Label();
-            this.labelValue = new System.Windows.Forms.Label();
-            this.textBoxValue = new System.Windows.Forms.TextBox();
-            this.textBoxOrgNr = new System.Windows.Forms.TextBox();
-            this.labelOrgNr = new System.Windows.Forms.Label();
-            this.labelDate = new System.Windows.Forms.Label();
-            this.textBoxDate = new System.Windows.Forms.TextBox();
-            this.btnAddStock = new System.Windows.Forms.Button();
-            this.btnUpdateStock = new System.Windows.Forms.Button();
-            this.btnRemoveStock = new System.Windows.Forms.Button();
-            this.btnSearchStock = new System.Windows.Forms.Button();
+            this.textBoxAdminUserId = new System.Windows.Forms.TextBox();
             this.tabControlAddEditStock.SuspendLayout();
             this.tabPageAddEditStock.SuspendLayout();
             this.tabPageAddEditAdmin.SuspendLayout();
@@ -90,15 +92,15 @@ namespace StockExchange
             // 
             // tabPageAddEditStock
             // 
+            this.tabPageAddEditStock.Controls.Add(this.labelAddEditStockMessage);
+            this.tabPageAddEditStock.Controls.Add(this.labelMessage);
             this.tabPageAddEditStock.Controls.Add(this.btnSearchStock);
             this.tabPageAddEditStock.Controls.Add(this.btnRemoveStock);
             this.tabPageAddEditStock.Controls.Add(this.btnUpdateStock);
             this.tabPageAddEditStock.Controls.Add(this.btnAddStock);
-            this.tabPageAddEditStock.Controls.Add(this.textBoxDate);
-            this.tabPageAddEditStock.Controls.Add(this.labelDate);
             this.tabPageAddEditStock.Controls.Add(this.labelOrgNr);
             this.tabPageAddEditStock.Controls.Add(this.textBoxOrgNr);
-            this.tabPageAddEditStock.Controls.Add(this.textBoxValue);
+            this.tabPageAddEditStock.Controls.Add(this.textBoxStockValue);
             this.tabPageAddEditStock.Controls.Add(this.labelValue);
             this.tabPageAddEditStock.Controls.Add(this.labelStockInfo);
             this.tabPageAddEditStock.Controls.Add(this.textBoxStockInfo);
@@ -109,14 +111,95 @@ namespace StockExchange
             this.tabPageAddEditStock.UseVisualStyleBackColor = true;
             this.tabPageAddEditStock.Click += new System.EventHandler(this.tabPageAccount_Click);
             // 
+            // labelAddEditStockMessage
+            // 
+            resources.ApplyResources(this.labelAddEditStockMessage, "labelAddEditStockMessage");
+            this.labelAddEditStockMessage.ForeColor = System.Drawing.Color.Red;
+            this.labelAddEditStockMessage.Name = "labelAddEditStockMessage";
+            // 
+            // labelMessage
+            // 
+            resources.ApplyResources(this.labelMessage, "labelMessage");
+            this.labelMessage.ForeColor = System.Drawing.Color.Red;
+            this.labelMessage.Name = "labelMessage";
+            // 
+            // btnSearchStock
+            // 
+            resources.ApplyResources(this.btnSearchStock, "btnSearchStock");
+            this.btnSearchStock.Name = "btnSearchStock";
+            this.btnSearchStock.UseVisualStyleBackColor = true;
+            this.btnSearchStock.Click += new System.EventHandler(this.btnSearchStock_Click);
+            // 
+            // btnRemoveStock
+            // 
+            resources.ApplyResources(this.btnRemoveStock, "btnRemoveStock");
+            this.btnRemoveStock.Name = "btnRemoveStock";
+            this.btnRemoveStock.UseVisualStyleBackColor = true;
+            this.btnRemoveStock.Click += new System.EventHandler(this.btnRemoveStock_Click);
+            // 
+            // btnUpdateStock
+            // 
+            resources.ApplyResources(this.btnUpdateStock, "btnUpdateStock");
+            this.btnUpdateStock.Name = "btnUpdateStock";
+            this.btnUpdateStock.UseVisualStyleBackColor = true;
+            this.btnUpdateStock.Click += new System.EventHandler(this.btnUpdateStock_Click);
+            // 
+            // btnAddStock
+            // 
+            resources.ApplyResources(this.btnAddStock, "btnAddStock");
+            this.btnAddStock.Name = "btnAddStock";
+            this.btnAddStock.UseVisualStyleBackColor = true;
+            this.btnAddStock.Click += new System.EventHandler(this.btnAddStock_Click);
+            // 
+            // labelOrgNr
+            // 
+            resources.ApplyResources(this.labelOrgNr, "labelOrgNr");
+            this.labelOrgNr.Name = "labelOrgNr";
+            // 
+            // textBoxOrgNr
+            // 
+            resources.ApplyResources(this.textBoxOrgNr, "textBoxOrgNr");
+            this.textBoxOrgNr.Name = "textBoxOrgNr";
+            // 
+            // textBoxStockValue
+            // 
+            resources.ApplyResources(this.textBoxStockValue, "textBoxStockValue");
+            this.textBoxStockValue.Name = "textBoxStockValue";
+            // 
+            // labelValue
+            // 
+            resources.ApplyResources(this.labelValue, "labelValue");
+            this.labelValue.Name = "labelValue";
+            // 
+            // labelStockInfo
+            // 
+            resources.ApplyResources(this.labelStockInfo, "labelStockInfo");
+            this.labelStockInfo.Name = "labelStockInfo";
+            // 
+            // textBoxStockInfo
+            // 
+            resources.ApplyResources(this.textBoxStockInfo, "textBoxStockInfo");
+            this.textBoxStockInfo.Name = "textBoxStockInfo";
+            // 
+            // labelStockName
+            // 
+            resources.ApplyResources(this.labelStockName, "labelStockName");
+            this.labelStockName.Name = "labelStockName";
+            // 
+            // textBoxStockName
+            // 
+            resources.ApplyResources(this.textBoxStockName, "textBoxStockName");
+            this.textBoxStockName.Name = "textBoxStockName";
+            // 
             // tabPageAddEditAdmin
             // 
+            this.tabPageAddEditAdmin.Controls.Add(this.labelAddAdminMessage);
             this.tabPageAddEditAdmin.Controls.Add(this.btnSearchAdmin);
             this.tabPageAddEditAdmin.Controls.Add(this.btnAddAdmin);
-            this.tabPageAddEditAdmin.Controls.Add(this.btnUpdate);
+            this.tabPageAddEditAdmin.Controls.Add(this.btnUpdateAdmin);
             this.tabPageAddEditAdmin.Controls.Add(this.labelName);
-            this.tabPageAddEditAdmin.Controls.Add(this.textBoxName);
-            this.tabPageAddEditAdmin.Controls.Add(this.textBoxPassword);
+            this.tabPageAddEditAdmin.Controls.Add(this.textBoxAdminName);
+            this.tabPageAddEditAdmin.Controls.Add(this.textBoxAdminPassword);
             this.tabPageAddEditAdmin.Controls.Add(this.labelPassword);
             this.tabPageAddEditAdmin.Controls.Add(this.labelAdminId);
             this.tabPageAddEditAdmin.Controls.Add(this.textBoxAdminId);
@@ -124,39 +207,47 @@ namespace StockExchange
             this.tabPageAddEditAdmin.Name = "tabPageAddEditAdmin";
             this.tabPageAddEditAdmin.UseVisualStyleBackColor = true;
             // 
+            // labelAddAdminMessage
+            // 
+            resources.ApplyResources(this.labelAddAdminMessage, "labelAddAdminMessage");
+            this.labelAddAdminMessage.ForeColor = System.Drawing.Color.Red;
+            this.labelAddAdminMessage.Name = "labelAddAdminMessage";
+            // 
             // btnSearchAdmin
             // 
             resources.ApplyResources(this.btnSearchAdmin, "btnSearchAdmin");
             this.btnSearchAdmin.Name = "btnSearchAdmin";
             this.btnSearchAdmin.UseVisualStyleBackColor = true;
+            this.btnSearchAdmin.Click += new System.EventHandler(this.btnSearchAdmin_Click);
             // 
             // btnAddAdmin
             // 
             resources.ApplyResources(this.btnAddAdmin, "btnAddAdmin");
             this.btnAddAdmin.Name = "btnAddAdmin";
             this.btnAddAdmin.UseVisualStyleBackColor = true;
+            this.btnAddAdmin.Click += new System.EventHandler(this.btnAddAdmin_Click);
             // 
-            // btnUpdate
+            // btnUpdateAdmin
             // 
-            resources.ApplyResources(this.btnUpdate, "btnUpdate");
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            resources.ApplyResources(this.btnUpdateAdmin, "btnUpdateAdmin");
+            this.btnUpdateAdmin.Name = "btnUpdateAdmin";
+            this.btnUpdateAdmin.UseVisualStyleBackColor = true;
+            this.btnUpdateAdmin.Click += new System.EventHandler(this.btnUpdateAdmin_Click);
             // 
             // labelName
             // 
             resources.ApplyResources(this.labelName, "labelName");
             this.labelName.Name = "labelName";
             // 
-            // textBoxName
+            // textBoxAdminName
             // 
-            resources.ApplyResources(this.textBoxName, "textBoxName");
-            this.textBoxName.Name = "textBoxName";
+            resources.ApplyResources(this.textBoxAdminName, "textBoxAdminName");
+            this.textBoxAdminName.Name = "textBoxAdminName";
             // 
-            // textBoxPassword
+            // textBoxAdminPassword
             // 
-            resources.ApplyResources(this.textBoxPassword, "textBoxPassword");
-            this.textBoxPassword.Name = "textBoxPassword";
+            resources.ApplyResources(this.textBoxAdminPassword, "textBoxAdminPassword");
+            this.textBoxAdminPassword.Name = "textBoxAdminPassword";
             // 
             // labelPassword
             // 
@@ -172,34 +263,113 @@ namespace StockExchange
             // 
             resources.ApplyResources(this.textBoxAdminId, "textBoxAdminId");
             this.textBoxAdminId.Name = "textBoxAdminId";
+            this.textBoxAdminId.TextChanged += new System.EventHandler(this.textBoxAdminId_TextChanged);
             // 
             // tabPageAddEditUser
             // 
+            this.tabPageAddEditUser.Controls.Add(this.labelEditRemoveUser);
             this.tabPageAddEditUser.Controls.Add(this.btnSearchUser);
             this.tabPageAddEditUser.Controls.Add(this.btnRemoveUser);
             this.tabPageAddEditUser.Controls.Add(this.btnUpdateUser);
-            this.tabPageAddEditUser.Controls.Add(this.textBoxAccount);
+            this.tabPageAddEditUser.Controls.Add(this.textBoxAdminAccount);
             this.tabPageAddEditUser.Controls.Add(this.label1);
             this.tabPageAddEditUser.Controls.Add(this.labelNationalIdNumber);
-            this.tabPageAddEditUser.Controls.Add(this.textBoxNationalIdNumber);
+            this.tabPageAddEditUser.Controls.Add(this.textBoxAdminNationalIdNumber);
             this.tabPageAddEditUser.Controls.Add(this.labelAddress);
-            this.tabPageAddEditUser.Controls.Add(this.textBoxAddress);
-            this.tabPageAddEditUser.Controls.Add(this.textBoxLastName);
+            this.tabPageAddEditUser.Controls.Add(this.textBoxAdminAddress);
+            this.tabPageAddEditUser.Controls.Add(this.textBoxAdminLastName);
             this.tabPageAddEditUser.Controls.Add(this.labelLastName);
             this.tabPageAddEditUser.Controls.Add(this.labelFirstName);
-            this.tabPageAddEditUser.Controls.Add(this.textBoxFirstName);
-            this.tabPageAddEditUser.Controls.Add(this.textBoxUserPassword);
+            this.tabPageAddEditUser.Controls.Add(this.textBoxAdminFirstName);
+            this.tabPageAddEditUser.Controls.Add(this.textBoxAdminUserPassword);
             this.tabPageAddEditUser.Controls.Add(this.labelUserPassword);
             this.tabPageAddEditUser.Controls.Add(this.labelUserId);
-            this.tabPageAddEditUser.Controls.Add(this.textBoxUserId);
+            this.tabPageAddEditUser.Controls.Add(this.textBoxAdminUserId);
             resources.ApplyResources(this.tabPageAddEditUser, "tabPageAddEditUser");
             this.tabPageAddEditUser.Name = "tabPageAddEditUser";
             this.tabPageAddEditUser.UseVisualStyleBackColor = true;
             // 
-            // textBoxUserPassword
+            // labelEditRemoveUser
             // 
-            resources.ApplyResources(this.textBoxUserPassword, "textBoxUserPassword");
-            this.textBoxUserPassword.Name = "textBoxUserPassword";
+            resources.ApplyResources(this.labelEditRemoveUser, "labelEditRemoveUser");
+            this.labelEditRemoveUser.ForeColor = System.Drawing.Color.Red;
+            this.labelEditRemoveUser.Name = "labelEditRemoveUser";
+            // 
+            // btnSearchUser
+            // 
+            resources.ApplyResources(this.btnSearchUser, "btnSearchUser");
+            this.btnSearchUser.Name = "btnSearchUser";
+            this.btnSearchUser.UseVisualStyleBackColor = true;
+            this.btnSearchUser.Click += new System.EventHandler(this.btnSearchUser_Click);
+            // 
+            // btnRemoveUser
+            // 
+            resources.ApplyResources(this.btnRemoveUser, "btnRemoveUser");
+            this.btnRemoveUser.Name = "btnRemoveUser";
+            this.btnRemoveUser.UseVisualStyleBackColor = true;
+            this.btnRemoveUser.Click += new System.EventHandler(this.btnRemoveUser_Click);
+            // 
+            // btnUpdateUser
+            // 
+            resources.ApplyResources(this.btnUpdateUser, "btnUpdateUser");
+            this.btnUpdateUser.Name = "btnUpdateUser";
+            this.btnUpdateUser.UseVisualStyleBackColor = true;
+            this.btnUpdateUser.Click += new System.EventHandler(this.btnUpdateUser_Click);
+            // 
+            // textBoxAdminAccount
+            // 
+            resources.ApplyResources(this.textBoxAdminAccount, "textBoxAdminAccount");
+            this.textBoxAdminAccount.Name = "textBoxAdminAccount";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // labelNationalIdNumber
+            // 
+            resources.ApplyResources(this.labelNationalIdNumber, "labelNationalIdNumber");
+            this.labelNationalIdNumber.Name = "labelNationalIdNumber";
+            // 
+            // textBoxAdminNationalIdNumber
+            // 
+            resources.ApplyResources(this.textBoxAdminNationalIdNumber, "textBoxAdminNationalIdNumber");
+            this.textBoxAdminNationalIdNumber.Name = "textBoxAdminNationalIdNumber";
+            // 
+            // labelAddress
+            // 
+            resources.ApplyResources(this.labelAddress, "labelAddress");
+            this.labelAddress.Name = "labelAddress";
+            // 
+            // textBoxAdminAddress
+            // 
+            resources.ApplyResources(this.textBoxAdminAddress, "textBoxAdminAddress");
+            this.textBoxAdminAddress.Name = "textBoxAdminAddress";
+            // 
+            // textBoxAdminLastName
+            // 
+            resources.ApplyResources(this.textBoxAdminLastName, "textBoxAdminLastName");
+            this.textBoxAdminLastName.Name = "textBoxAdminLastName";
+            // 
+            // labelLastName
+            // 
+            resources.ApplyResources(this.labelLastName, "labelLastName");
+            this.labelLastName.Name = "labelLastName";
+            // 
+            // labelFirstName
+            // 
+            resources.ApplyResources(this.labelFirstName, "labelFirstName");
+            this.labelFirstName.Name = "labelFirstName";
+            // 
+            // textBoxAdminFirstName
+            // 
+            resources.ApplyResources(this.textBoxAdminFirstName, "textBoxAdminFirstName");
+            this.textBoxAdminFirstName.Name = "textBoxAdminFirstName";
+            // 
+            // textBoxAdminUserPassword
+            // 
+            resources.ApplyResources(this.textBoxAdminUserPassword, "textBoxAdminUserPassword");
+            this.textBoxAdminUserPassword.Name = "textBoxAdminUserPassword";
             // 
             // labelUserPassword
             // 
@@ -211,153 +381,10 @@ namespace StockExchange
             resources.ApplyResources(this.labelUserId, "labelUserId");
             this.labelUserId.Name = "labelUserId";
             // 
-            // textBoxUserId
+            // textBoxAdminUserId
             // 
-            resources.ApplyResources(this.textBoxUserId, "textBoxUserId");
-            this.textBoxUserId.Name = "textBoxUserId";
-            // 
-            // textBoxFirstName
-            // 
-            resources.ApplyResources(this.textBoxFirstName, "textBoxFirstName");
-            this.textBoxFirstName.Name = "textBoxFirstName";
-            // 
-            // labelFirstName
-            // 
-            resources.ApplyResources(this.labelFirstName, "labelFirstName");
-            this.labelFirstName.Name = "labelFirstName";
-            // 
-            // labelLastName
-            // 
-            resources.ApplyResources(this.labelLastName, "labelLastName");
-            this.labelLastName.Name = "labelLastName";
-            // 
-            // textBoxLastName
-            // 
-            resources.ApplyResources(this.textBoxLastName, "textBoxLastName");
-            this.textBoxLastName.Name = "textBoxLastName";
-            // 
-            // textBoxAddress
-            // 
-            resources.ApplyResources(this.textBoxAddress, "textBoxAddress");
-            this.textBoxAddress.Name = "textBoxAddress";
-            // 
-            // labelAddress
-            // 
-            resources.ApplyResources(this.labelAddress, "labelAddress");
-            this.labelAddress.Name = "labelAddress";
-            // 
-            // textBoxNationalIdNumber
-            // 
-            resources.ApplyResources(this.textBoxNationalIdNumber, "textBoxNationalIdNumber");
-            this.textBoxNationalIdNumber.Name = "textBoxNationalIdNumber";
-            // 
-            // labelNationalIdNumber
-            // 
-            resources.ApplyResources(this.labelNationalIdNumber, "labelNationalIdNumber");
-            this.labelNationalIdNumber.Name = "labelNationalIdNumber";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // textBoxAccount
-            // 
-            resources.ApplyResources(this.textBoxAccount, "textBoxAccount");
-            this.textBoxAccount.Name = "textBoxAccount";
-            // 
-            // btnUpdateUser
-            // 
-            resources.ApplyResources(this.btnUpdateUser, "btnUpdateUser");
-            this.btnUpdateUser.Name = "btnUpdateUser";
-            this.btnUpdateUser.UseVisualStyleBackColor = true;
-            // 
-            // btnRemoveUser
-            // 
-            resources.ApplyResources(this.btnRemoveUser, "btnRemoveUser");
-            this.btnRemoveUser.Name = "btnRemoveUser";
-            this.btnRemoveUser.UseVisualStyleBackColor = true;
-            // 
-            // btnSearchUser
-            // 
-            resources.ApplyResources(this.btnSearchUser, "btnSearchUser");
-            this.btnSearchUser.Name = "btnSearchUser";
-            this.btnSearchUser.UseVisualStyleBackColor = true;
-            // 
-            // textBoxStockName
-            // 
-            resources.ApplyResources(this.textBoxStockName, "textBoxStockName");
-            this.textBoxStockName.Name = "textBoxStockName";
-            // 
-            // labelStockName
-            // 
-            resources.ApplyResources(this.labelStockName, "labelStockName");
-            this.labelStockName.Name = "labelStockName";
-            this.labelStockName.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // textBoxStockInfo
-            // 
-            resources.ApplyResources(this.textBoxStockInfo, "textBoxStockInfo");
-            this.textBoxStockInfo.Name = "textBoxStockInfo";
-            // 
-            // labelStockInfo
-            // 
-            resources.ApplyResources(this.labelStockInfo, "labelStockInfo");
-            this.labelStockInfo.Name = "labelStockInfo";
-            // 
-            // labelValue
-            // 
-            resources.ApplyResources(this.labelValue, "labelValue");
-            this.labelValue.Name = "labelValue";
-            // 
-            // textBoxValue
-            // 
-            resources.ApplyResources(this.textBoxValue, "textBoxValue");
-            this.textBoxValue.Name = "textBoxValue";
-            // 
-            // textBoxOrgNr
-            // 
-            resources.ApplyResources(this.textBoxOrgNr, "textBoxOrgNr");
-            this.textBoxOrgNr.Name = "textBoxOrgNr";
-            // 
-            // labelOrgNr
-            // 
-            resources.ApplyResources(this.labelOrgNr, "labelOrgNr");
-            this.labelOrgNr.Name = "labelOrgNr";
-            // 
-            // labelDate
-            // 
-            resources.ApplyResources(this.labelDate, "labelDate");
-            this.labelDate.Name = "labelDate";
-            // 
-            // textBoxDate
-            // 
-            resources.ApplyResources(this.textBoxDate, "textBoxDate");
-            this.textBoxDate.Name = "textBoxDate";
-            // 
-            // btnAddStock
-            // 
-            resources.ApplyResources(this.btnAddStock, "btnAddStock");
-            this.btnAddStock.Name = "btnAddStock";
-            this.btnAddStock.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdateStock
-            // 
-            resources.ApplyResources(this.btnUpdateStock, "btnUpdateStock");
-            this.btnUpdateStock.Name = "btnUpdateStock";
-            this.btnUpdateStock.UseVisualStyleBackColor = true;
-            // 
-            // btnRemoveStock
-            // 
-            resources.ApplyResources(this.btnRemoveStock, "btnRemoveStock");
-            this.btnRemoveStock.Name = "btnRemoveStock";
-            this.btnRemoveStock.UseVisualStyleBackColor = true;
-            // 
-            // btnSearchStock
-            // 
-            resources.ApplyResources(this.btnSearchStock, "btnSearchStock");
-            this.btnSearchStock.Name = "btnSearchStock";
-            this.btnSearchStock.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.textBoxAdminUserId, "textBoxAdminUserId");
+            this.textBoxAdminUserId.Name = "textBoxAdminUserId";
             // 
             // Admin
             // 
@@ -382,10 +409,10 @@ namespace StockExchange
         private System.Windows.Forms.TabControl tabControlAddEditStock;
         private System.Windows.Forms.TabPage tabPageAddEditStock;
         private System.Windows.Forms.TabPage tabPageAddEditAdmin;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnUpdateAdmin;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.TextBox textBoxAdminName;
+        private System.Windows.Forms.TextBox textBoxAdminPassword;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Label labelAdminId;
         private System.Windows.Forms.TextBox textBoxAdminId;
@@ -393,35 +420,37 @@ namespace StockExchange
         private System.Windows.Forms.Button btnAddAdmin;
         private System.Windows.Forms.TabPage tabPageAddEditUser;
         private System.Windows.Forms.Label labelUserId;
-        private System.Windows.Forms.TextBox textBoxUserPassword;
+        private System.Windows.Forms.TextBox textBoxAdminUserPassword;
         private System.Windows.Forms.Label labelUserPassword;
         private System.Windows.Forms.Label labelFirstName;
-        private System.Windows.Forms.TextBox textBoxFirstName;
+        private System.Windows.Forms.TextBox textBoxAdminFirstName;
         private System.Windows.Forms.Label labelAddress;
-        private System.Windows.Forms.TextBox textBoxAddress;
-        private System.Windows.Forms.TextBox textBoxLastName;
+        private System.Windows.Forms.TextBox textBoxAdminAddress;
+        private System.Windows.Forms.TextBox textBoxAdminLastName;
         private System.Windows.Forms.Label labelLastName;
-        private System.Windows.Forms.TextBox textBoxAccount;
+        private System.Windows.Forms.TextBox textBoxAdminAccount;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelNationalIdNumber;
-        private System.Windows.Forms.TextBox textBoxNationalIdNumber;
-        private System.Windows.Forms.TextBox textBoxUserId;
+        private System.Windows.Forms.TextBox textBoxAdminNationalIdNumber;
+        private System.Windows.Forms.TextBox textBoxAdminUserId;
         private System.Windows.Forms.Button btnUpdateUser;
         private System.Windows.Forms.Button btnSearchUser;
         private System.Windows.Forms.Button btnRemoveUser;
         private System.Windows.Forms.Label labelStockName;
         private System.Windows.Forms.TextBox textBoxStockName;
         private System.Windows.Forms.Button btnAddStock;
-        private System.Windows.Forms.TextBox textBoxDate;
-        private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.Label labelOrgNr;
         private System.Windows.Forms.TextBox textBoxOrgNr;
-        private System.Windows.Forms.TextBox textBoxValue;
+        private System.Windows.Forms.TextBox textBoxStockValue;
         private System.Windows.Forms.Label labelValue;
         private System.Windows.Forms.Label labelStockInfo;
         private System.Windows.Forms.TextBox textBoxStockInfo;
         private System.Windows.Forms.Button btnRemoveStock;
         private System.Windows.Forms.Button btnUpdateStock;
         private System.Windows.Forms.Button btnSearchStock;
+        private System.Windows.Forms.Label labelMessage;
+        private System.Windows.Forms.Label labelAddAdminMessage;
+        private System.Windows.Forms.Label labelAddEditStockMessage;
+        private System.Windows.Forms.Label labelEditRemoveUser;
     }
 }
