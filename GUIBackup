@@ -1,0 +1,669 @@
+package org.tempuri;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.lang.reflect.Method;
+import java.rmi.RemoteException;
+import java.util.Vector;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.plaf.basic.BasicTabbedPaneUI.TabbedPaneLayout;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+public class GUI extends JFrame {
+
+	Controller controller = new Controller();
+
+	private JPanel contentPane;
+	private JTable tableMetaData;
+	private JTextField textFieldNO;
+	private JTextField textFieldNO1;
+	private JTextField textFieldFirstName;
+	private JTextField textFieldMiddleName;
+	private JTextField textFieldLastName;
+	private JTextField textFieldInitials;
+	private JTextField textFieldJobTitle;
+	private JLabel lblEmployeeErrorMessage;
+	DefaultTableModel model = new DefaultTableModel();
+
+
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUI frame = new GUI();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 650, 412);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+	
+		
+
+		/**
+		 * -------------------------------------Tabbed
+		 * Pane------------------------
+		 **/
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(0, 0, 624, 361);
+		contentPane.add(tabbedPane,null);
+		
+		//
+
+		/** ------------------------------PANELS------------------------------ **/
+		JPanel panelEmployee = new JPanel();
+		tabbedPane.addTab("Employee", null, panelEmployee, null);
+		panelEmployee.setLayout(null);
+
+		textFieldNO = new JTextField();
+		textFieldNO.setBounds(455, 16, 117, 24);
+		panelEmployee.add(textFieldNO);
+		textFieldNO.setColumns(10);
+
+		JLabel lblNO = new JLabel("NO:");
+		lblNO.setBounds(415, 21, 29, 14);
+		panelEmployee.add(lblNO);
+
+		textFieldNO1 = new JTextField();
+		textFieldNO1.setBounds(197, 46, 117, 24);
+		textFieldNO1.setColumns(10);
+		panelEmployee.add(textFieldNO1);
+
+		textFieldFirstName = new JTextField();
+		textFieldFirstName.setBounds(197, 93, 117, 24);
+		textFieldFirstName.setColumns(10);
+		panelEmployee.add(textFieldFirstName);
+
+		textFieldMiddleName = new JTextField();
+		textFieldMiddleName.setBounds(197, 134, 117, 24);
+		textFieldMiddleName.setColumns(10);
+		panelEmployee.add(textFieldMiddleName);
+
+		textFieldLastName = new JTextField();
+		textFieldLastName.setBounds(197, 182, 117, 24);
+		textFieldLastName.setColumns(10);
+		panelEmployee.add(textFieldLastName);
+
+		textFieldInitials = new JTextField();
+		textFieldInitials.setBounds(197, 228, 117, 24);
+		textFieldInitials.setColumns(10);
+		panelEmployee.add(textFieldInitials);
+
+		textFieldJobTitle = new JTextField();
+		textFieldJobTitle.setBounds(197, 263, 117, 24);
+		textFieldJobTitle.setColumns(10);
+		panelEmployee.add(textFieldJobTitle);
+
+		JLabel lblNo = new JLabel("NO");
+		lblNo.setBounds(132, 51, 23, 14);
+		panelEmployee.add(lblNo);
+
+		JLabel lblFirstName = new JLabel("First Name");
+		lblFirstName.setBounds(132, 98, 55, 14);
+		panelEmployee.add(lblFirstName);
+
+		JLabel lblMiddleName = new JLabel("Middle Name");
+		lblMiddleName.setBounds(132, 139, 70, 14);
+		panelEmployee.add(lblMiddleName);
+
+		JLabel lblLastName = new JLabel("Last Name");
+		lblLastName.setBounds(132, 187, 70, 14);
+		panelEmployee.add(lblLastName);
+
+		JLabel lblInitials = new JLabel("Initials");
+		lblInitials.setBounds(132, 233, 37, 14);
+		panelEmployee.add(lblInitials);
+
+		JLabel lblJobTitle = new JLabel("Job title");
+		lblJobTitle.setBounds(132, 268, 46, 14);
+		panelEmployee.add(lblJobTitle);
+
+		JLabel lblEmployeeErrorMessage_1 = new JLabel();
+		lblEmployeeErrorMessage_1.setBounds(419, 250, 200, 50);
+		panelEmployee.add(lblEmployeeErrorMessage_1);
+
+		JButton btnSearch = new JButton("Search");
+		btnSearch.setBounds(465, 61, 89, 23);
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String no = textFieldNO.getText();
+				String[] info = controller.getSingleEmpp(no);
+
+				setTextBoxes(info);
+
+			}
+		});
+		panelEmployee.add(btnSearch);
+
+		JButton btnAdd = new JButton("Add");
+		btnAdd.setBounds(98, 298, 89, 23);
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String[] info = getTextBoxes();
+				try {
+					controller.addEmployee(info[0], info[1], info[2], info[3],
+							info[4], info[5]);
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		});
+		panelEmployee.add(btnAdd);
+
+		JButton btnUpdate = new JButton("Update");
+		btnUpdate.setBounds(207, 298, 89, 23);
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[] info = getTextBoxes();
+
+				try {
+					if (info[0] != "") {
+						controller.updateEmployee(info[0], info[1], info[2],
+								info[3], info[4], info[5]);
+					}
+				} catch (RemoteException e1) {
+
+				}
+			}
+		});
+		panelEmployee.add(btnUpdate);
+
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.setBounds(327, 298, 89, 23);
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[] info = getTextBoxes();
+				try {
+					controller.deleteEmployee(info[0]);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		panelEmployee.add(btnDelete);
+
+		JPanel panelData = new JPanel();
+		tabbedPane.addTab("Data", null, panelData, null);
+		
+
+		JPanel panelMetaData = new JPanel();
+		tabbedPane.addTab("Metadata", null, panelMetaData, null);
+		
+
+	
+
+		/*----------------Button to search for employee--------------------------*/
+
+		/*----------------------------Button to add Employee--------------------*/
+
+		/*--------------------------Button to update Employee---------------------------*/
+
+		/*--------------------------------Button to delete Employee----------------------------*/
+
+		/**
+		 * ---------------------------------ALL THE BUTTONS FOR TAB
+		 * DATA----------------------
+		 **/
+
+		/*------------- Button for All employees -----------------------------*/
+
+		JButton btnALLEmployees = new JButton("All Employees");
+		btnALLEmployees.setBounds(10, 26, 132, 23);
+		btnALLEmployees.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					String[][] info = controller.getAllEmployees();
+					showTableAllEmployees(info);
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		panelData.setLayout(null);
+		panelData.add(btnALLEmployees);
+
+		/*-------------Button for  Absence of employees -----------------------------*/
+
+		JButton btnEmpAbsence = new JButton("Absence");
+		btnEmpAbsence.setBounds(145, 26, 132, 23);
+		btnEmpAbsence.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					
+					String[][] info = controller.getAllAbsence();
+					 showTableEmployeeAbsence(info);
+					
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			}
+		});
+		panelData.add(btnEmpAbsence);
+		
+
+		/*------------- Button for The relatives -----------------------------*/
+
+		JButton btnRelatives = new JButton("Relatives");
+		btnRelatives.setBounds(289, 26, 132, 23);
+		btnRelatives.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[][] info;
+				try {
+					info = controller.getAllRelatives();
+					showTableAllRelatives(info);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		panelData.add(btnRelatives);
+
+		/*------------- Button for Employee Relatives-----------------------------*/
+
+		JButton btnEmpRelatives = new JButton("Employee Relatives");
+		btnEmpRelatives.setBounds(58, 51, 132, 23);
+		btnEmpRelatives.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[][] info;
+				try {
+					info = controller.getEmployeeRelatives();
+					showTableEmployeeRealtives(info);
+					
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		panelData.add(btnEmpRelatives);
+
+		/*----------------------------Button for Qualification------------------------*/
+
+		JButton btnQualification = new JButton("Qualification");
+		btnQualification.setBounds(426, 26, 132, 23);
+		btnQualification.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[][] info;
+				try {
+					info = controller.getAllQualifications();
+					showTableEmployeeQualification(info);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		panelData.add(btnQualification);
+
+		/*-----------------------Button for Most absence---------------------*/
+		JButton btnMostabsence = new JButton("Most absence");
+		btnMostabsence.setBounds(367, 51, 132, 23);
+		btnMostabsence.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[][] info;
+				try {
+					info = controller.getMostAbsence();
+					showTableMostAbsence(info);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		panelData.add(btnMostabsence);
+
+		/*-------------------------Button for Most absence in 2004------------------------------------*/
+		JButton btnAbsence2004 = new JButton("Absence 2004");
+		btnAbsence2004.setBounds(217, 51, 132, 23);
+		btnAbsence2004.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String[][] info;
+				try {
+					info = controller.getMostAbsence2004();
+					showTableMostAbsence2004(info);
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		panelData.add(btnAbsence2004);
+
+		/**
+		 * ----------------------------ALL THE BUTTONS FOR TAB
+		 * METADATA-----------------------------
+		 **/
+
+		/*-------------------Button for All Keys---------------------*/
+
+		JButton btnAllKeys = new JButton("All Keys");
+		btnAllKeys.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[][] info;
+				
+				try {
+					info = controller.getAllKeys();
+					showTableAllKeys(info);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				
+				
+			}
+		});
+		btnAllKeys.setBounds(5, 5, 150, 23);
+		panelMetaData.add(btnAllKeys);
+
+		/*-----------------------Button for columns in employee one--------------------*/
+
+		JButton btnAllColumnsInEmployee1 = new JButton("Columns employee 1");
+		btnAllColumnsInEmployee1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnAllColumnsInEmployee1.setBounds(165, 39, 145, 23);
+		panelMetaData.add(btnAllColumnsInEmployee1);
+
+		/*--------------------Button for All tables two-----------------------*/
+
+		JButton btnAllTables2 = new JButton("All Tables 2");
+		btnAllTables2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnAllTables2.setBounds(5, 39, 150, 23);
+		panelMetaData.add(btnAllTables2);
+
+		/*------------------------Button for Employee Meta--------------------------*/
+
+		JButton btnEmployeeMeta = new JButton("Employee Meta");
+		btnEmployeeMeta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnEmployeeMeta.setBounds(474, 39, 145, 23);
+		panelMetaData.add(btnEmployeeMeta);
+
+		/*------------------------Button for Absence Meta--------------------------*/
+		JButton btnAbsenceMeta = new JButton("Absence Meta");
+		btnAbsenceMeta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnAbsenceMeta.setBounds(59, 68, 145, 23);
+		panelMetaData.add(btnAbsenceMeta);
+
+		/*------------------------Button for Relative Metadata--------------------------*/
+
+		JButton btnRelativeMeta = new JButton("Relative Meta");
+		btnRelativeMeta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRelativeMeta.setBounds(224, 68, 145, 23);
+		panelMetaData.add(btnRelativeMeta);
+
+		/*------------------------Button for Qualification Metadata--------------------------*/
+
+		JButton btnQualificationMetaData = new JButton("Qualification Meta");
+		btnQualificationMetaData.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnQualificationMetaData.setBounds(394, 68, 145, 23);
+		panelMetaData.add(btnQualificationMetaData);
+
+		/*----------------------------Button for All indexes ------------------------*/
+
+		JButton btnNewButton = new JButton("All indexes");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(165, 5, 145, 23);
+		panelMetaData.add(btnNewButton);
+
+		/*----------------------------Button for All table constraints ------------------------*/
+
+		JButton btnAllTableConstraints = new JButton("All table constraints");
+		btnAllTableConstraints.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnAllTableConstraints.setBounds(320, 5, 150, 23);
+		panelMetaData.add(btnAllTableConstraints);
+
+		/*----------------------------Button for All tables 1 ------------------------*/
+
+		JButton btnAllTables1 = new JButton("All tables 1");
+		btnAllTables1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnAllTables1.setBounds(474, 5, 145, 23);
+		panelMetaData.add(btnAllTables1);
+
+		/*-------------------------------Button for Columns employee1-----------------------*/
+		JButton btnColumnEmployee2 = new JButton("Columns employee 2");
+		btnColumnEmployee2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		panelMetaData.setLayout(null);
+		btnColumnEmployee2.setBounds(320, 39, 150, 23);
+		panelMetaData.add(btnColumnEmployee2);
+
+	}
+
+	/*--------------- Creates the GUI methods -----------------*/
+
+	public void setTextBoxes(String[] info) {
+		textFieldNO1.setText(info[0]);
+		textFieldFirstName.setText(info[1]);
+		textFieldMiddleName.setText(info[2]);
+		textFieldLastName.setText(info[3]);
+		textFieldInitials.setText(info[4]);
+		textFieldJobTitle.setText(info[5]);
+
+	}
+
+	public String[] getTextBoxes() {
+		String[] info = new String[6];
+		info[0] = textFieldNO1.getText();
+		info[1] = textFieldFirstName.getText();
+		info[2] = textFieldMiddleName.getText();
+		info[3] = textFieldLastName.getText();
+		info[4] = textFieldInitials.getText();
+		info[5] = textFieldJobTitle.getText();
+		return info;
+	}
+
+	/**
+	 * ____-------__________________------DETTA ÄR PETTANS
+	 * TABLE-----_____________--_--__--___-___-_-
+	 * 
+	 * @return
+	 **/
+
+	public void showTableAllEmployees(String[][] info) {
+
+		String[][] data = null;
+		String[] columnNames = { "NO", "First Name", "Middle Name",
+				"Last Name", "Initials", "Job Title" };
+		try {
+			data = controller.getAllEmployees();
+		} catch (RemoteException e2) {
+			e2.printStackTrace();
+		}
+		JTable table = new JTable(data, columnNames);
+		JScrollPane scrollPane = new JScrollPane(table);
+
+		contentPane.add(scrollPane, BorderLayout.CENTER);
+		table.setBounds(37, 165, 353, 152);
+		scrollPane.setBounds(10, 102, 599, 220);
+		
+	}
+
+	public void showTableEmployeeAbsence(String[][] info) {
+
+		String[][] data = null;
+		String[] columnNames = { "NO", "Employee No", "Cause Of Absence",
+				"Description" };
+		try {
+			data = controller.getAllAbsence();
+		} catch (RemoteException e2) {
+			e2.printStackTrace();
+		}
+		DefaultTableModel model = new DefaultTableModel(data,columnNames);
+		JTable table = new JTable(model);
+		JScrollPane scrollPane = new JScrollPane(table);
+
+
+		contentPane.add(scrollPane,BorderLayout.CENTER);
+
+		table.setBounds(10, 102, 599, 23);
+		scrollPane.setBounds(10, 102, 599, 223);
+	}
+
+	public void showTableAllRelatives(String[][] info) {
+
+		String[][] data = null;
+		String[] columnNames = { "NO", "Relative Code", "First Name",
+				"Last Name" };
+		try {
+			data = controller.getAllRelatives();
+		} catch (RemoteException e2) {
+			e2.printStackTrace();
+		}
+		DefaultTableModel model = new DefaultTableModel(data,columnNames);
+		JTable table = new JTable(model);
+		JScrollPane scrollPane = new JScrollPane(table);
+		
+		contentPane.add(scrollPane,BorderLayout.CENTER);
+		table.setBounds(10, 102, 542, 23);
+		scrollPane.setBounds(10, 102, 599, 220);
+	}
+	public void showTableEmployeeQualification(String[][] info){
+		String[][] data = null;
+		String[] columnNames = { "NO", "Qualification Code", "Description", "Institution Company" };
+		try {
+			data = controller.getAllQualifications();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DefaultTableModel model = new DefaultTableModel(data,columnNames);
+		JTable table = new JTable(model);
+		JScrollPane scrollPane = new JScrollPane(table);
+		
+		contentPane.add(scrollPane,BorderLayout.CENTER);
+		table.setBounds(10, 102, 542, 23);
+		scrollPane.setBounds(10, 102, 599, 220);
+		
+	}
+	public void showTableEmployeeRealtives(String[][] info){
+		String[][] data = null;
+		String[] columnNames = { "NO", "First Name", "Last Name", "Relative Code", "First Name", "Last Name" };
+		try {
+			data=controller.getEmployeeRelatives();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DefaultTableModel model = new DefaultTableModel(data,columnNames);
+		JTable table = new JTable(model);
+		JScrollPane scrollPane = new JScrollPane(table);
+		
+		contentPane.add(scrollPane,BorderLayout.CENTER);
+		table.setBounds(10, 102, 542, 23);
+		scrollPane.setBounds(10, 102, 599, 220);
+	}
+	public void showTableMostAbsence2004(String[][] info){
+		String[][] data = null;
+		String[] columnNames = { "NO", "From Date", "To Date", "Cause of Absence Code", "Description" };
+		try {
+			data=controller.getMostAbsence2004();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DefaultTableModel model = new DefaultTableModel(data,columnNames);
+		JTable table = new JTable(model);
+		JScrollPane scrollPane = new JScrollPane(table);
+		
+		contentPane.add(scrollPane,BorderLayout.CENTER);
+		table.setBounds(10, 102, 542, 23);
+		scrollPane.setBounds(10, 102, 599, 220);
+	}
+	private void showTableMostAbsence(String[][] info){
+		String[][] data = null;
+		String[] columnNames = { "First Name" };
+		try {
+			data=controller.getMostAbsence();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DefaultTableModel model = new DefaultTableModel(data,columnNames);
+		JTable table = new JTable(model);
+		JScrollPane scrollPane = new JScrollPane(table);
+		
+		contentPane.add(scrollPane,BorderLayout.CENTER);
+		table.setBounds(10, 102, 542, 23);
+		scrollPane.setBounds(10, 102, 599, 220);
+	}
+	private void showTableAllKeys(String[][] info){
+		String[][] data = null;
+		String[] columnNames = {"Tabell", "Keys"};
+		try {
+			data=controller.getAllKeys();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DefaultTableModel model = new DefaultTableModel(data,columnNames);
+		JTable table = new JTable(model);
+		JScrollPane scrollPane = new JScrollPane(table);
+		
+		contentPane.add(scrollPane,BorderLayout.CENTER);
+		table.setBounds(10, 102, 542, 23);
+		scrollPane.setBounds(10, 102, 599, 220);
+	}
+}
