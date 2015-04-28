@@ -1,0 +1,131 @@
+package org.tempuri;
+
+import java.util.*;
+import java.rmi.RemoteException;
+import java.sql.ResultSet;
+
+import javax.jws.WebService;
+
+public class Controller {
+
+		
+	 ERPServiceSoapProxy client = new ERPServiceSoapProxy();
+		
+	 /*--------- Calls the different Web methods for Employee from C# --------*/
+	 public String[] getSingleEmpp(String no){
+		 String[] tmpSingleEmpp = null;
+		try {
+			tmpSingleEmpp = client.getSingleEmpp(no);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return tmpSingleEmpp;
+	}
+	 public void addEmployee(String no, String firstName,String middleName, String lastName,String initials,String jobTitle) 
+			 throws RemoteException{
+		client.addEmployee(no, firstName, middleName, lastName, initials, jobTitle);
+	 }
+	 
+	 public void updateEmployee(String no, String firstName,String middleName, String lastName,String initials,String jobTitle)
+		 throws RemoteException{
+			 client.updateEmployee(no, firstName, middleName, lastName, initials, jobTitle);
+	 }
+	 public void deleteEmployee(String no)
+	 throws RemoteException{
+		 client.deleteEmployee(no);
+	 }
+	 
+	 /*------- Calls the different Web methods for Data Cronus data from C# --------*/
+	public String[][] getAllEmployees() 
+			throws RemoteException{
+		 String[][] info = client.getAllEmployees();
+		return info;
+	} 
+	public String[][] getAllAbsence()
+	throws RemoteException{
+		String[][] info = client.getAllAbsence();
+		return info;
+	}
+	public String[][] getAllRelatives()
+		throws RemoteException{
+		String[][] info = client.getAllRelatives();
+		return info;
+	}
+	public String[][] getAllQualifications()
+		throws RemoteException{
+		String[][] info = client.getAllQualifications();
+		return info;
+	}
+	public String[][] getEmployeeRelatives()
+		throws RemoteException{
+		String[][] info = client.getEmployeeRelatives();
+		return info;
+	}
+	public String[][] getMostAbsence()
+		throws RemoteException{
+		String[][] info = client.getMostAbsence();
+		return info;
+	}
+	public String[][] getMostAbsence2004()
+		throws RemoteException{
+		String[][] info = client.getEmlpoyeeAbscence2004();
+				return info;
+	}
+	 /*------- Calls the different Web methods for Meta data for Cronus data from C# --------*/
+	public String[][] getAllKeys()
+		throws RemoteException{
+			String[][] info = client.getAllKeys();
+					return info;
+		}
+	public String[][] getAllIndexes()
+		throws RemoteException{
+			String[][] info = client.getAllIndexes();
+			return info;
+	}
+	public String[][] getAllTablesConstraints()
+		throws RemoteException{
+		String[][] info = client.getAllTableConstraints();
+			return info;
+	}
+	public String[][] getAllTables1()
+		throws RemoteException{
+		String[][] info = client.getAllTables_1();
+		return info;
+	}
+	public String[][] getAllTables2()
+		throws RemoteException{
+		String[][] info = client.getAllTables_2();
+		return info;
+	}
+	public String[][] getColumnsEmployee1()
+		throws RemoteException{
+		String[][] info = client.getAllColumnsEmployee_1();
+		return info;
+	}
+	public String[][] getColumnsEmployee2()
+		throws RemoteException{
+		String[][] info = client.getAllTables_2();
+		return info;
+	}
+	public String[][] getEmployeeMetaData()
+		throws RemoteException{
+		String[][] info = client.getEmployeeMetaData();
+		return info;
+	}
+	public String[][] getAbsenceMetaData()
+		throws RemoteException{
+		String[][] info = client.getAbsenceMetaData();
+		return info;
+	}
+	public String[][] getRelativeMetaData()
+		throws RemoteException{
+		String[][] info = client.getRelativeMetaData();
+		return info;
+	}
+	public String[][] getQualificationMetaData()
+		throws RemoteException{
+		String[][] info = client.getQualificationMetaData();
+		return info;
+	}
+}
